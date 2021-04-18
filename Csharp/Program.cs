@@ -7,16 +7,101 @@ namespace Csharp
 
         static void Main(string[] args)
         {
-            /////现在开始的  所有重做工作全部面向对象/////
-            
-            //登录功能----User完成
-            User hjb = new User();
-            hjb.Name = "hjb";
-            hjb.Password = "123";
-            hjb.Authcore = "q1q1";
-            hjb.Login();
+            ////面向过程
+            //1.输出两个整数 / 小数的和 / 差 / 积 / 商
+            //    Console.WriteLine(1 + 1);
+            //    Console.WriteLine(0.1 + 0.2);
+            ////2.电脑计算并输出：[(23 + 7)x12-8]÷6的小数值
+            //  Console.WriteLine(Math.Round((Single)((23 + 7) * 12 - 8) / 6, 2));
 
-            //注册
+            ////将源栈同学姓名/昵称分别：
+            ////1.按进栈时间装入一维数组，
+            //string[] names = { "小红", "小明", "小刚" };
+            ////2.按座位装入二维数组，
+            ////方法一 
+            //string[,] seats = new string[2, 3];
+            //seats[0, 0] = "韩佳宝";
+            //seats[0, 1] = "胡涛";
+            //seats[0, 0] = "夏康平";
+
+            //seats[1, 0] = "1";
+            //seats[1, 1] = "2";
+            //seats[1, 2] = "3";
+            ////方法二
+            //string[,] seats = { { "小红", "小明", "小刚" }, { "1", "2", "3" } };
+            ////并输出共有多少名同学。
+            //Console.WriteLine(names.GetLength(1));
+
+            //1.分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
+            ////for
+            //for (int i = 0; i < 5; i++)
+            //{ Console.WriteLine(i + 1); }
+            //while
+            //int j = 0;
+            //while (j < 5)
+            //{
+            //    //Console.WriteLine(j + 1);
+            //    j = j + 1;
+            //}
+            //for (int i = 0; i < 9; i += 2)
+            //{ Console.WriteLine(i + 1); }
+
+            //////1.用for循环输出存储在一维 / 二维数组里的源栈所有同学姓名 / 昵称
+            ////part1
+            //string[] names = { "小红", "小明", "小刚" };
+            //procedure.Findpeople(names);
+            ////part2
+            //string[,] nameplaces = { { "小红(0,0)", null, "小刚(0,2)" }, { null, null, "小明(1,2)" } };
+            //procedure.Findpeople(nameplaces);
+
+
+            ////2.让电脑计算并输出：99 + 97 + 95 + 93 + ...+1的值
+            //int sum = 1;
+            //for (int i = 3; i < 100; i += 2)
+            //{
+            //    sum = sum + i;
+            //}
+            //Console.WriteLine(sum);
+
+            ////3.将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
+            //double[] scores = { 79.13, 38.22, 66.31, 44.44, 87.52 };
+            //procedure.Maxandmin(scores);
+
+            ////找到100以内的所有质数（只能被1和它自己整除的数）
+            //int number = 100;
+            //procedure.Primenumber(number);
+
+            //2.生成一个元素（值随机）从小到大排列的数组(随机数的累加)
+
+            int[] numbers = new int[9];
+            numbers[0] = new Random().Next(1, 20);
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                numbers[i] = new Random().Next(1, 200) + numbers[i - 1];
+                Console.WriteLine(numbers[i]);
+            }
+
+
+
+            //3.设立并显示一个多维数组的值，元素值等于下标之和。Console.Write()
+
+
+
+
+
+
+
+
+
+            /////现在开始的  所有重做工作全部面向对象/////
+            ////登录功能----User完成
+            //User hjb = new User();
+            //hjb.Name = "hjb";
+            //hjb.Password = "123";
+            //hjb.Authcore = "q1q1";
+            //hjb.Login();
+
+
 
 
 
@@ -238,5 +323,5 @@ namespace Csharp
             //Console.WriteLine(1&0);
 
         }
+        }
     }
-}

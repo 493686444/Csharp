@@ -76,65 +76,65 @@ namespace Csharp
 
 
         //2.2功能---登录
-        //封装验证过程
-        static public bool test(string sample, string tester, string _display_type)
-        {
-
-            if (sample is null)
-            {
-                Console.WriteLine($"The {_display_type} can't be empty");
-                return false;
-            }
-            else if (sample != tester)
-            {
-                Console.WriteLine($"The {_display_type} is inexistenced");
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
-        }
-        //利用检验过程  验证登录
-        public bool Login()
-        {
-            //Verify user Name
-            string _display_type = "Name";
-            Console.WriteLine("Write your name");
-            string readname = Console.ReadLine();
-            if (test(readname, Name, _display_type))
-            {
-                //Verify user Password
-                _display_type = "Password";
-                Console.WriteLine("Write your password");
-                string readpassword = Console.ReadLine();
-                if (test(readpassword, Password, _display_type))
+                //封装验证过程
+                static public bool test(string sample, string tester, string _display_type)
                 {
-                    //Verify user Authcode
-                    _display_type = "Authcode";
-                    Console.WriteLine("Write the authcode");
-                    string readauthcord = Console.ReadLine();
-                    if (test(readauthcord, Authcore, _display_type))
+
+                    if (sample is null)
                     {
-                        Console.WriteLine("Login successfully");
+                        Console.WriteLine($"The {_display_type} can't be empty");
+                        return false;
+                    }
+                    else if (sample != tester)
+                    {
+                        Console.WriteLine($"The {_display_type} is inexistenced");
+                        return false;
+                    }
+                    else
+                    {
                         return true;
+                    }
+
+                }
+                //利用检验过程  验证登录
+                public bool Login()
+                {
+                    //Verify user Name
+                    string _display_type = "Name";
+                    Console.WriteLine("Write your name");
+                    string readname = Console.ReadLine();
+                    if (test(readname, Name, _display_type))
+                    {
+                        //Verify user Password
+                        _display_type = "Password";
+                        Console.WriteLine("Write your password");
+                        string readpassword = Console.ReadLine();
+                        if (test(readpassword, Password, _display_type))
+                        {
+                            //Verify user Authcode
+                            _display_type = "Authcode";
+                            Console.WriteLine("Write the authcode");
+                            string readauthcord = Console.ReadLine();
+                            if (test(readauthcord, Authcore, _display_type))
+                            {
+                                Console.WriteLine("Login successfully");
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                     else
                     {
                         return false;
                     }
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
 
 
         // 实现 2.3
