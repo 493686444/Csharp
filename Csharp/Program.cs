@@ -7,17 +7,38 @@ namespace Csharp
 
         static void Main(string[] args)
         {
-            ////面向过程
-            //1.输出两个整数 / 小数的和 / 差 / 积 / 商
-            //    Console.WriteLine(1 + 1);
-            //    Console.WriteLine(0.1 + 0.2);
-            ////2.电脑计算并输出：[(23 + 7)x12-8]÷6的小数值
-            //  Console.WriteLine(Math.Round((Single)((23 + 7) * 12 - 8) / 6, 2));
+            #region 面向过程
 
+            #region 控制台项目
+            //无
+            #endregion
+
+            #region 变量和类型
+            //无
+            #endregion
+
+            #region 运算符和表达式
+
+            #region 1.输出两个整数 / 小数的和 / 差 / 积 / 商
+            //Console.WriteLine(1 + 1);
+            //Console.WriteLine(0.1 + 0.2);
+            #endregion
+
+            #region 2.电脑计算并输出：[(23 + 7)x12-8]÷6的小数值
+            //  Console.WriteLine(Math.Round((Single)((23 + 7) * 12 - 8) / 6, 2));
+            #endregion
+            #endregion
+
+            #region 分支：if...else
+            //登录功能 封装在面向对象工作中
+            #endregion
+
+            #region 数组
             ////将源栈同学姓名/昵称分别：
-            ////1.按进栈时间装入一维数组，
+            #region 1.按进栈时间装入一维数组，
             //string[] names = { "小红", "小明", "小刚" };
-            ////2.按座位装入二维数组，
+            #endregion
+            #region 2.按座位装入二维数组
             ////方法一 
             //string[,] seats = new string[2, 3];
             //seats[0, 0] = "韩佳宝";
@@ -31,8 +52,15 @@ namespace Csharp
             //string[,] seats = { { "小红", "小明", "小刚" }, { "1", "2", "3" } };
             ////并输出共有多少名同学。
             //Console.WriteLine(names.GetLength(1));
+            #endregion
 
-            //1.分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
+
+
+            #endregion
+
+            #region 循环
+
+            #region 1.分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
             ////for
             //for (int i = 0; i < 5; i++)
             //{ Console.WriteLine(i + 1); }
@@ -45,63 +73,132 @@ namespace Csharp
             //}
             //for (int i = 0; i < 9; i += 2)
             //{ Console.WriteLine(i + 1); }
+            #endregion
 
-            //////1.用for循环输出存储在一维 / 二维数组里的源栈所有同学姓名 / 昵称
-            ////part1
+            #region 2.用for循环输出存储在一维 / 二维数组里的源栈所有同学姓名 / 昵称
+            ////part1   一维
             //string[] names = { "小红", "小明", "小刚" };
             //procedure.Findpeople(names);
-            ////part2
+            ////part2   二维
             //string[,] nameplaces = { { "小红(0,0)", null, "小刚(0,2)" }, { null, null, "小明(1,2)" } };
             //procedure.Findpeople(nameplaces);
 
+            #endregion
 
-            ////2.让电脑计算并输出：99 + 97 + 95 + 93 + ...+1的值
+            #region 3.让电脑计算并输出：99 + 97 + 95 + 93 + ...+1的值
             //int sum = 1;
             //for (int i = 3; i < 100; i += 2)
             //{
             //    sum = sum + i;
             //}
             //Console.WriteLine(sum);
+            #endregion
 
-            ////3.将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
+            #region 4.将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
             //double[] scores = { 79.13, 38.22, 66.31, 44.44, 87.52 };
             //procedure.Maxandmin(scores);
+            #endregion
 
-            ////找到100以内的所有质数（只能被1和它自己整除的数）
+            #region 5.找到100以内的所有质数（只能被1和它自己整除的数）
             //int number = 100;
             //procedure.Primenumber(number);
+            #endregion
 
-            //2.生成一个元素（值随机）从小到大排列的数组(随机数的累加)
+            #region 6.生成一个元素（值随机）从小到大排列的数组(随机数的累加)
+            //int[] numbers = new int[9];
+            //numbers[0] = new Random().Next(1, 20);
+            //for (int i = 1; i < numbers.Length; i++)
+            //{
+            //    numbers[i] = new Random().Next(1, 200) + numbers[i - 1];
+            //    Console.WriteLine(numbers[i]);
+            //}
+            #endregion
 
-            int[] numbers = new int[9];
-            numbers[0] = new Random().Next(1, 20);
-            for (int i = 1; i < numbers.Length; i++)
+            #region 7.设立并显示一个多维数组的值，元素值等于下标之和。
+            //int[,] numbers = new int[3,4];
+            //for (int i = 0; i <= numbers.GetLength(1); i++)
+            //{
+            //    for (int j = 0; j <= numbers.GetLength(0); j++)
+            //    {
+            //        numbers[i, j] = i + j;
+            //        Console.Write(numbers[i, j]);
+            //    }
+            //    Console.WriteLine();
+            //}
+            #endregion
+            #endregion
+
+            #region  方法基础：声明 / 调用 / 返回值
+
+            #region  2.计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
+            //double[] numbers = { 23.2, 43.5, 23.5, 56.5 };
+            //procedure.GetAverage(numbers);
+            #endregion
+
+            #region 3.完成“猜数字”游戏，方法名GuessMe()
             {
-                numbers[i] = new Random().Next(1, 200) + numbers[i - 1];
-                Console.WriteLine(numbers[i]);
+                //随机生成一个大于0小于1000的整数
+                //用户输入一个猜测值，系统进行判断，告知用户猜测的数是“大了”，还是“小了”
+                //没猜中可以继续猜，但最多不能超过10次
+                //①　如果5次之内猜中，输出：你真牛逼！
+                //②　如果8次之内猜中，输出：不错嘛！
+                //③　10次还没猜中，输出：(～￣(OO)￣)ブ
+            }
+            procedure.GuessMe();
+            #endregion
+
+            #endregion
+
+            #region 方法进阶：值/引用传递
+            #region 1.利用ref调用Swap()方法交换两个同学的床位号
+            //int hjb = 1;
+            //int xkp = 2;
+            //procedure.changebed(ref hjb,ref xkp);
+            #endregion
+            #region 2.将登陆的过程封装成一个方法LogOn()，调用之后能够获得：
+            {
+                //true / false，表示登陆是否成功
+                //string，表示登陆失败的原因
+            }
+            //User来做这事  login
+            #endregion
+
+            #endregion
+
+            #region 方法进阶：参数：重载/可选/params
+            #region  1.定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
+            {
+                //最小值min（默认为1） 
+                //相邻两个元素之间的最大差值gap（默认为5）
+                //元素个数length（默认为10个）
+            }
+            procedure.GetArray();
+            #endregion
+            #region 实现二分查找，方法名BinarySeek(int[] numbers, int target)：
+            {
+                //传入一个有序（从大到小 / 从小到大）数组和数组中要查找的元素
+                //如果找到，返回该元素所在的下标；否则，返回 - 1
             }
 
 
+            #endregion
 
-            //3.设立并显示一个多维数组的值，元素值等于下标之和。Console.Write()
+            #endregion
 
-
-
-
-
+            #endregion 面向过程-结束
 
 
 
-
-            /////现在开始的  所有重做工作全部面向对象/////
-            ////登录功能----User完成
+            #region 面向对象
+            #region 登录功能----User完成
             //User hjb = new User();
             //hjb.Name = "hjb";
             //hjb.Password = "123";
             //hjb.Authcore = "q1q1";
             //hjb.Login();
 
-
+            #endregion
+            #endregion
 
 
 
@@ -309,19 +406,7 @@ namespace Csharp
 
 
 
-
-
-
-
-
-
-
-
-            //测试
-
-            //Console.WriteLine(1|0);
-            //Console.WriteLine(1&0);
-
-        }
         }
     }
+}
+
