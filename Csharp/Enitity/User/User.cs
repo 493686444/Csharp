@@ -8,8 +8,8 @@ using System.Text;
 
 namespace Csharp
 {
-     sealed class User 
-        : Entity,ISendMessage,IChat
+    sealed class User
+       : Entity, ISendMessage, IChat
     {
         //0.0构造函数
         public User()
@@ -25,28 +25,28 @@ namespace Csharp
         //1.数据
         //公有
         public TokenManager Tokens;
-                        //公有(假私有)
-                        private string _name;
-                        public string Name
-                        {
+        //公有(假私有)
+        private string _name;
+        public string Name
+        {
 
-                            get { return Name; }
-                            set
-                            {
-                                if (value == "admin")
-                                {
-                                    _name = "系统管理员";
-                                }
-                                else
-                                {
-                                    _name = value;
-                                }
-                            }
-                        }
-                public string Password { private get; set; }
-                public string Authcore { get; set; }
+            get { return _name; }
+            set
+            {
+                if (value == "admin")
+                {
+                    _name = "系统管理员";
+                }
+                else
+                {
+                    _name = value;
+                }
+            }
+        }
+        public string Password { private get; set; }
+        public string Authcore { get; set; }
 
-                public string Invitedby;
+        public string Invitedby;
 
         //2.1功能---注册
         public bool Register(
@@ -75,32 +75,72 @@ namespace Csharp
         }
 
 
-       //2.2功能---登录
-        public bool Login(string readName, string readPassword, string readAuthcore)
+        //2.2功能---登录
+        //封装验证过程
+        static public bool test(string sample, string tester, string _display_type)
         {
-            if (readName is null)
+
+            if (sample is null)
             {
-                throw new ArgumentNullException(nameof(readName));
+                Console.WriteLine($"The {_display_type} can't be empty");
+                return false;
+            }
+            else if (sample != tester)
+            {
+                Console.WriteLine($"The {_display_type} is inexistenced");
+                return false;
+            }
+            else
+            {
+                return true;
             }
 
-            if (readName == Name)
+        }
+        //利用检验过程  验证登录
+        public bool Login()
+        {
+            //Verify user Name
+            string _display_type = "Name";
+            Console.WriteLine("Write your name");
+            string readname = Console.ReadLine();
+            if (test(readname, Name, _display_type))
             {
-                if (readPassword == Password && readAuthcore == Authcore)
+                //Verify user Password
+                _display_type = "Password";
+                Console.WriteLine("Write your password");
+                string readpassword = Console.ReadLine();
+                if (test(readpassword, Password, _display_type))
                 {
-                    return true;
+                    //Verify user Authcode
+                    _display_type = "Authcode";
+                    Console.WriteLine("Write the authcode");
+                    string readauthcord = Console.ReadLine();
+                    if (test(readauthcord, Authcore, _display_type))
+                    {
+                        Console.WriteLine("Login successfully");
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {
                     return false;
                 }
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
+
         // 实现 2.3
-        void ISendMessage.Send() 
-        { 
-        
+        void ISendMessage.Send()
+        {
+
         }
         void IChat.Send()
         {

@@ -7,8 +7,16 @@ namespace Csharp
 
         static void Main(string[] args)
         {
+            /////现在开始的  所有重做工作全部面向对象/////
+            
+            //登录功能----User完成
+            User hjb = new User();
+            hjb.Name = "hjb";
+            hjb.Password = "123";
+            hjb.Authcore = "q1q1";
+            hjb.Login();
 
-
+            //注册
 
 
 
@@ -197,8 +205,8 @@ namespace Csharp
 
 
             ////1.在https://source.dot.net/中找到 Console.WriteLine(new Student()); 输出Student类名的源代码
-            Entity id = new User();
-            Console.WriteLine(id.GetType().Name);
+            //Entity id = new User();
+            //Console.WriteLine(id.GetType().Name);
             //Console.WriteLine(typeof(User));/*这个只可以是类型*/
             ////2.思考dynamic和var的区别，并用代码予以演示
             ////一个是动态,一个是自动调整(第一次会自动适应数值类型,以后会一直用这个数据类型)
@@ -228,7 +236,6 @@ namespace Csharp
 
             //Console.WriteLine(1|0);
             //Console.WriteLine(1&0);
-            Console.WriteLine(Equals(new FactoryContext(), new FactoryContext()));
 
         }
     }
