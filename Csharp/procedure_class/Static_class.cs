@@ -172,11 +172,33 @@ namespace Csharp
             b = temp;
         }
 
-        static public  int[] GetArray() 
+        #region 三个参数的数组
+        //跨度范围
+        static private int GetArray_span() 
         {
-
-
+            int random = 0;
+            while (true)
+            {
+                if (random == 0)
+                {  random = new Random().Next(0,5); }
+                else
+                { return random; }
+            }
         }
+        //制作数组
+        static public  int[] GetArray(int min,int span,int number) 
+        {
+            //声明 数组
+            int[] array = new int[number];
+            array[0]= new Random().Next();
+            for (int i =1; i < number; i++)
+            {
+                array[i] = array[i - 1] + GetArray_span();
+                Console.WriteLine(array[i]);
+            }
+            return array;
+        }
+        #endregion
 
     }
 }

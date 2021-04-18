@@ -144,7 +144,7 @@ namespace Csharp
                 //②　如果8次之内猜中，输出：不错嘛！
                 //③　10次还没猜中，输出：(～￣(OO)￣)ブ
             }
-            procedure.GuessMe();
+            //procedure.GuessMe();
             #endregion
 
             #endregion
@@ -172,7 +172,13 @@ namespace Csharp
                 //相邻两个元素之间的最大差值gap（默认为5）
                 //元素个数length（默认为10个）
             }
-            procedure.GetArray();
+            //最小值1
+            int min= 1;
+            //最大差值5
+            int span = 5;
+            //元素个数10
+            int number = 10;
+            procedure.GetArray(min,span,number);
             #endregion
             #region 实现二分查找，方法名BinarySeek(int[] numbers, int target)：
             {
