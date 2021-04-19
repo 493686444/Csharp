@@ -8,10 +8,9 @@ namespace Csharp
     {
 
         //2.1功能
-        public bool Publish(Content CandSth) 
+        public void Publish(Content CandSth) 
         {
-            return true;
-
+           
         }
     }
 }

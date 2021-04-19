@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Csharp
 {
-     abstract class  Content
+     abstract class  Content//抽象类
     {
         #region 构造函数
         public Content(string kind)
@@ -22,13 +22,16 @@ namespace Csharp
 
         private DateTime _createTime=DateTime.Now; 
         public DateTime PublishTime { get { return _createTime; } }
-
         protected string _kind;  //只能被子类使用
+
         #endregion
 
-        //2.0功能---抽象
+
+
+        #region 抽象方法       
         public abstract void Publish();
 
+        #endregion
 
-       }
+    }
 }
