@@ -244,6 +244,36 @@ namespace Csharp
             }
         }
         #endregion
+
+        #region 两个类型的传递
+        public static int Transmit(int i)
+        {  i = i + 1;
+            return i;  }
+
+        public static ThePublic Transmit(ThePublic hjb)
+        {
+            ThePublic temp = hjb;
+            return temp;
+        }
+
+        public static int Transmit(ref int number)
+        {
+            number = number + 1;
+            return number;
+        }
+
+        public static ThePublic Transmit(ref ThePublic hjb)
+        {
+            ThePublic temp = hjb;
+            return temp;
+        }
+
+        public static ThePublic Transmit_r(ThePublic hjb)
+        {
+            ThePublic temp = new ThePublic();
+            return temp;
+        }
+        #endregion
     }
 }
 

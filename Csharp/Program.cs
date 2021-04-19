@@ -215,14 +215,11 @@ namespace Csharp
             #endregion 面向过程-结束
 
 
-
             #region 面向对象
 
-            #region 类和对象
+            #region 一些对象(调用工作,在此处进行)
 
-            #region User 类
-
-
+            #region User 对象
 
             #region 登录功能----User
             //User hjb = new User();
@@ -259,16 +256,47 @@ namespace Csharp
 
             #endregion
 
-            #region Problem 类
+            //未调用
+            #region Problem 对象
+
+            #endregion
+
+            //未调用
+            #region HelpMoney(帮帮币) 对象
+
+            #endregion
 
             #endregion
 
 
+            #region 引用类型和值类型
+
+            ////值类型参数的值传递
+            //int number= 1;
+            //procedure.Transmit(number);
+
+            ////引用类型参数的值传递
+            //ThePublic hjb = new ThePublic();
+            //procedure.Transmit(hjb);
+
+            ////值类型参数的引用传递0
+            //int number = 1;
+            //procedure.Transmit (ref number);
+
+            ////引用类型参数的引用传递
+            //ThePublic hjb = new ThePublic();
+            //procedure.Transmit(ref hjb);
+
+            ////return代替引用类型的引用传递
+            //ThePublic hjb = new ThePublic();
+            //procedure.Transmit_r(hjb);
+
             #endregion
 
+            #region 其他类成员
 
 
-
+            #endregion
 
 
             #endregion 面向对象结束
