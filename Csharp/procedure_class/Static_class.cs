@@ -110,29 +110,30 @@ namespace Csharp
             {
                 x = numbers[i] + x;
             }
-            Console.WriteLine(Math.Round((x / numbers.Length),2)); 
+            Console.WriteLine(Math.Round((x / numbers.Length), 2));
         }
 
         #region 猜数字游戏
         //判断猜测是否正确
-        static private bool GuessMe_yesorno(int number,int random) 
+        static private bool GuessMe_yesorno(int number, int random)
         {
-            if (number==random)   
-            { return true; }   
-            else 
+            if (number == random)
+            { return true; }
+            else
             {
-                if (number> random)
+                if (number > random)
                 { Console.WriteLine("大了"); }
                 else
                 { Console.WriteLine("小了"); }
-                return false; 
+                return false;
             }
         }
         //根据猜的结果给出答复
-        static public void GuessMe() 
+        static public void GuessMe()
         {
+            Console.WriteLine("请猜字,范围在0-1000");
             int random = new Random().Next(0, 1000);
-            Console.WriteLine(random);
+            Console.WriteLine(random);//测试专用代码
             for (int i = 1; i < 11; i++)
             {
                 Console.WriteLine($" 第{i}次输入开始");
@@ -149,14 +150,11 @@ namespace Csharp
                 else
                 {
                     if (i == 10)
-                    { Console.WriteLine("(～￣(OO)￣)ブ");}
+                    { Console.WriteLine("(～￣(OO)￣)ブ"); }
                     else
-                    { Console.WriteLine($"还剩{10-i}次"); }
+                    { Console.WriteLine($"还剩{10 - i}次"); }
                 }
             }
-
-
-            
         }
         #endregion
 
@@ -174,29 +172,54 @@ namespace Csharp
 
         #region 三个参数的数组
         //跨度范围
-        static private int GetArray_span() 
+        static private int GetArray_span()
         {
             int random = 0;
             while (true)
             {
                 if (random == 0)
-                {  random = new Random().Next(0,5); }
+                { random = new Random().Next(0, 5); }
                 else
                 { return random; }
             }
         }
         //制作数组
-        static public  int[] GetArray(int min,int span,int number) 
+        static public int[] GetArray(int min, int span, int number)
         {
             //声明 数组
             int[] array = new int[number];
-            array[0]= new Random().Next();
-            for (int i =1; i < number; i++)
+            array[0] = new Random().Next();
+            for (int i = 1; i < number; i++)
             {
                 array[i] = array[i - 1] + GetArray_span();
                 Console.WriteLine(array[i]);
             }
             return array;
+        }
+        #endregion
+
+        #region 二分查找
+        static public int BinarySeek(int[] numbers, int target)
+        {
+            int left = 0, right = numbers.Length - 1, middle;
+            while (true)
+            {
+                middle = (left + right) / 2;
+                if (left == middle)
+                { Console.WriteLine("没有"); return -1; }
+                else
+                {
+                    if (numbers[middle] == target)
+                    {
+                        Console.WriteLine(middle + 1);
+                        return middle + 1;
+                    }
+                    else if (numbers[middle] > target)
+                    { right = middle; }
+                    else//(numbers[middle] < target)
+                    { left = middle; }
+                }
+            }
         }
         #endregion
 

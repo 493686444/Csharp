@@ -172,20 +172,22 @@ namespace Csharp
                 //相邻两个元素之间的最大差值gap（默认为5）
                 //元素个数length（默认为10个）
             }
-            //最小值1
-            int min= 1;
-            //最大差值5
-            int span = 5;
-            //元素个数10
-            int number = 10;
-            procedure.GetArray(min,span,number);
+            ////最小值1
+            //int min= 1;
+            ////最大差值5
+            //int span = 5;
+            ////元素个数10
+            //int number = 10;
+            //procedure.GetArray(min,span,number);
             #endregion
             #region 实现二分查找，方法名BinarySeek(int[] numbers, int target)：
             {
                 //传入一个有序（从大到小 / 从小到大）数组和数组中要查找的元素
                 //如果找到，返回该元素所在的下标；否则，返回 - 1
             }
-
+            int[] numbers = new int[9] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+            int target = 3;
+            procedure.BinarySeek(numbers, target);
 
             #endregion
 
