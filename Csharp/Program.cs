@@ -220,6 +220,10 @@ namespace Csharp
 
             #region 类和对象
 
+            #region User 类
+
+
+
             #region 登录功能----User
             //User hjb = new User();
             //hjb.Name = "hjb";
@@ -251,13 +255,14 @@ namespace Csharp
             //else
             //{  Console.WriteLine("注册失败"); }
 
-
+            #endregion
 
             #endregion
 
-            #region MyRegion
+            #region Problem 类
 
             #endregion
+
 
             #endregion
 

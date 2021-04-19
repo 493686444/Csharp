@@ -73,9 +73,7 @@ namespace Csharp
                     return true;
                 }
                 else
-                {
-                    return false;
-                }
+                { return false; }
             }
         }
         #endregion
