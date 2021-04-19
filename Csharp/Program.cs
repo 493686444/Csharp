@@ -329,7 +329,38 @@ namespace Csharp
 
             #endregion
 
-      
+            #region 结构和日期
+
+            #region 1.用代码证明struct定义的类型是值类型
+            //class类型需要new,默认为空,struct为值类型,有默认数值
+
+            //int thevalue = 1;  //不报错      int struct类型
+            //Problem theref = 1;    //报错  class 引用类型
+            #endregion
+            #region 2.源栈的学费是按周计费的，所以请实现这两个功能：
+            {
+                //1.函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期
+                //2.给定任意一个年份，就能按周排列显示每周的起始日期，如下图所示：
+            }
+            ////2.1
+            //Console.WriteLine("请输入起始时间,格式为:年,月,日");
+            //DateTime sth = Convert.ToDateTime(Console.ReadLine());
+            //Console.WriteLine("请输入变化的时间,单位/天");
+            //int dd = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("请输入变化的时间,单位/月");
+            //int mm = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine("请输入变化的时间,单位/年");
+            //int yy = Convert.ToInt32(Console.ReadLine());
+            //Console.WriteLine(GetDateTime.GetDate(dd, mm, yy, sth).ToString("yyyy年MM月dd日"));
+
+            ////2/2
+            //Console.WriteLine("请输入起始时间,格式为:年");
+            //int year = Convert.ToInt32(Console.ReadLine());
+            //GetDateTime.GetDate(year);
+
+
+            #endregion
+            #endregion
 
 
             #endregion 面向对象结束
@@ -363,27 +394,7 @@ namespace Csharp
 
 
 
-            ////            用代码证明struct定义的类型是值类型
-            ////a不用new,b需要new
-            //int a =1;
-            //Problem b=1;
 
-            ////源栈的学费是按周计费的，所以请实现这两个功能：
-            ////函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期
-            //Console.WriteLine("请输入起始时间,格式为:年,月,日");
-            //DateTime sth = Convert.ToDateTime(Console.ReadLine());
-            //Console.WriteLine("请输入变化的时间,单位/天");
-            //int dd = Convert.ToInt32(Console.ReadLine());
-            //Console.WriteLine("请输入变化的时间,单位/月");
-            //int mm = Convert.ToInt32(Console.ReadLine());
-            //Console.WriteLine("请输入变化的时间,单位/年");
-            //int yy = Convert.ToInt32(Console.ReadLine());
-            //Console.WriteLine(GetDateTime.GetDate(dd, mm, yy, sth).ToString("yyyy年MM月dd日"));
-
-            ////    给定任意一个年份，就能按周排列显示每周的起始日期，如下图所示：
-            //Console.WriteLine("请输入起始时间,格式为:年");
-            //int year = Convert.ToInt32(Console.ReadLine());
-            //GetDateTime.GetDate(year);
 
 
             //            声明一个令牌（Token）枚举，包含值：SuperAdmin、Admin、Blogger、Newbie、Registered。

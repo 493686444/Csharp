@@ -23,21 +23,29 @@ namespace Csharp
                     }
                 //和建议共有
                 public string comment;
-                public int Agree;
-                public int Disagree;
+
         //三者共有(写在父类)
 
-        //2.1接口的实现
+   
         public void Change()
         {
 
         }
-        //2.2抽象成员的实现
+      
         public override void Publish() 
         {
         
         }
+        #region 实现---Agree&Disagree
+        public override void Agree()
+        {
 
+        }
+        public override void Disagree()
+        {
+
+        }
+        #endregion
 
     }
 }

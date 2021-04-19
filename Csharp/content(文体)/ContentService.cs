@@ -7,10 +7,12 @@ namespace Csharp
     class ContentService
     {
 
-        //2.1功能
-        public void Publish(Content CandSth) 
+        public Content Option;
+        public void Publish(string type) //参数枚举更好
         {
            
+            Option = new Problem("poblem");
+            Option.Publish();
         }
     }
 }

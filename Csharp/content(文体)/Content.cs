@@ -30,6 +30,8 @@ namespace Csharp
 
         #region 抽象方法       
         public abstract void Publish();
+        public abstract void Agree();
+        public abstract void Disagree();
 
         #endregion
 

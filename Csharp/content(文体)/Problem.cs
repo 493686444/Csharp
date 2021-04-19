@@ -108,5 +108,16 @@ namespace Csharp
 
         #endregion
 
+        #region 实现---Agree&Disagree
+        public override void Agree() 
+        {
+        
+        }
+        public override void Disagree() 
+        { 
+        
+        }
+        #endregion
+
     }
 }

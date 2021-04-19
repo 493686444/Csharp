@@ -7,26 +7,32 @@ namespace Csharp
     class Suggest
         : Content
     {
-        //0.0构造函数
+        #region 构造函数
         public Suggest(string kind)
-        : base(kind) 
+        : base(kind)
         {
-        
+
         }
-
+        #endregion
         //1.数据
-                //和文章公有
-                public string comment;
-                public int Agree;
-                public int Disagree;
-                 //三者共有(写在父类)
+        //和文章公有
+        public string comment;
 
 
 
-        //2.1抽象成员的实现
         public override void Publish()
         {
 
         }
+        #region 实现---Agree&Disagree
+        public override void Agree()
+        {
+
+        }
+        public override void Disagree()
+        {
+
+        }
+        #endregion
     }
 }
