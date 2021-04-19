@@ -30,22 +30,18 @@ namespace Csharp
         //公有(假私有)
         private string _name;
         public string Name
-        {
-
+        { 
             get { return _name; }
             set
             {
+           
                 if (value == "admin")
-                {
-                    _name = "系统管理员";
-                }
+                {  _name = "系统管理员"; }//2.如果user.Name为“admin”，输入时修改为“系统管理员”
                 else
-                {
-                    _name = value;
-                }
+                { _name = value; }
             }
         }
-        public string Password { private get; set; }
+        public string Password { private get; set; }//1.user.Password在类的外部只能改不能读
         public string Authcore { get; set; }
 
         public string Invitedby;

@@ -32,8 +32,8 @@ namespace Csharp
                     set
                     {
                         if (value < 0)
-                        { Console.WriteLine("奖励不可以小于零"); }
-                        else
+                        { Console.WriteLine("奖励不可以小于零"); }//3.problem.Reward不能为负数
+                else
                         { _reward = value; }
                     }
                     get { return _reward; }
