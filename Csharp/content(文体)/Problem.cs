@@ -21,7 +21,7 @@ namespace Csharp
         #region 数据
 
         private string[] _keyword = new string[10];
-                public string this[int index]
+                public string this[int index]//3.一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写。
                 {
                     get { return _keyword[index]; }
                     set { _keyword[index] = value; }

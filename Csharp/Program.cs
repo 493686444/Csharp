@@ -256,12 +256,13 @@ namespace Csharp
 
             #endregion
 
-            //未调用
             #region Problem 对象
-
+            Problem myproblem = new Problem("problem");
+            myproblem.Title = Console.ReadLine();
+            myproblem.Body = Console.ReadLine();
+            Console.WriteLine("收到了前端数据  即将发送至后端");
             #endregion
 
-            //未调用
             #region HelpMoney(帮帮币) 对象
 
             #endregion
