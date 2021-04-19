@@ -29,7 +29,6 @@ namespace Csharp
             get { return _name; }
             set
             {
-           
                 if (value == "admin")
                 {  _name = "系统管理员"; }//2.如果user.Name为“admin”，输入时修改为“系统管理员”
                 else

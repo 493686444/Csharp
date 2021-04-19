@@ -6,21 +6,26 @@ namespace Csharp
 {
      abstract class  Content
     {
-        //0.0构造函数(_kind都有值)
+        #region 构造函数
         public Content(string kind)
         {
             _kind = kind;
         }
-        //1.数据
-                //公有
-                public string Title;
-                public string Body;
-                public string Author;   
-                    
-                //私有
-                private DateTime _createTime;
-                        //可继承
-                        protected string _kind;
+
+        #endregion
+
+        #region 数据
+
+        public string Title;
+        public string Body;
+        public string Author;
+
+        private DateTime _createTime=DateTime.Now; 
+        public DateTime PublishTime { get { return _createTime; } }
+
+        protected string _kind;  //只能被子类使用
+        #endregion
+
         //2.0功能---抽象
         public abstract void Publish();
 

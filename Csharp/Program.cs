@@ -292,7 +292,7 @@ namespace Csharp
             //stack.Pop();
             //stack.Pop();
             //stack.Pop();
-      
+
             #endregion
 
             #region HelpMoney(帮帮币) 对象
@@ -329,7 +329,7 @@ namespace Csharp
 
             #endregion
 
-    
+      
 
 
             #endregion 面向对象结束
