@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Csharp
 {
-    sealed class User
+    sealed class User  //不被继承
        : Entity, ISendMessage, IChat
     {
         #region 构造函数
