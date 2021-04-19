@@ -6,41 +6,45 @@ namespace Csharp
 {
     class MimicStack
     {
-        //构造函数
+        #region 构造函数
         public MimicStack(int x)
         {
-            box = new object[x];
+            array = new object[x];
         }
-        //数据
-        public object[] box;
+        #endregion
+
+        #region 数据
+        public object[] array;
         public int pointer = -1;
-        //行为
-        public object Pop()
+        #endregion
+
+        #region 功能
+        public void Pop()
         {
-            if (pointer==-1)
+            if (pointer == -1)
             {
                 Console.WriteLine("栈空");
-                return 0;            }
+                
+            }
             else
             {
+                Console.WriteLine("取出" + array[pointer]);
                 pointer = pointer - 1;
-                Console.WriteLine("取出"+box[pointer]);
-                return box[pointer];
             }
         }
-        public void Push(object x)
+        public void Push(int x)
         {
             pointer = pointer + 1;
-            if (pointer ==box.Length)
-            {
-                Console.WriteLine("栈溢出");
-            }
+            if (pointer == array.Length)
+            { Console.WriteLine("栈溢出"); }
             else
             {
-                box[pointer] = x;
-                Console.WriteLine("已放入" + box[pointer]);
+                array[pointer] = x;
+                Console.WriteLine("已放入" + array[pointer]);
             }
         }
+        #endregion
+
 
     }
 }

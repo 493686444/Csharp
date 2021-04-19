@@ -257,10 +257,42 @@ namespace Csharp
             #endregion
 
             #region Problem 对象
-            Problem myproblem = new Problem("problem");
-            myproblem.Title = Console.ReadLine();
-            myproblem.Body = Console.ReadLine();
-            Console.WriteLine("收到了前端数据  即将发送至后端");
+            // --------------------------发布-------------------//
+            ////Console.WriteLine("收到了前端数据  即将发送至后端");
+
+            ////用户输入的内容
+            //string readtitle = Console.ReadLine();
+            //string readbody = Console.ReadLine();
+            //DateTime readpublishtime = new DateTime(Convert.ToInt64(Console.ReadLine()));
+            //string readauthor = Console.ReadLine();
+            //int readreward = Convert.ToInt32(Console.ReadLine());
+
+            //Console.WriteLine("关键字");
+            //String[] keyword = new string[10];
+            //for (int i = 0; i < keyword.Length; i++)
+            //{
+            //    keyword[i] = Console.ReadLine();
+            //}
+            ////声明
+            //Problem myproblem = new Problem("problem");
+            ////调用   (没有返回值的话也可以,但是  失败或者成功的反馈结果  要放在函数里边)
+            //if (myproblem.Publish(readtitle, readbody, readauthor, readreward, keyword))
+            //{ Console.WriteLine("发布成功"); }
+            //else
+            //{ Console.WriteLine("发布失败");  }
+
+            #endregion
+
+            #region 模拟栈 对象
+            ////出入栈
+            //MimicStack stack = new MimicStack(2);
+            ////调用
+            //stack.Push(1);
+            //stack.Push(2);
+            //stack.Pop();
+            //stack.Pop();
+            //stack.Pop();
+      
             #endregion
 
             #region HelpMoney(帮帮币) 对象
@@ -294,10 +326,7 @@ namespace Csharp
 
             #endregion
 
-            #region 其他类成员
-
-
-            #endregion
+    
 
 
             #endregion 面向对象结束
@@ -306,113 +335,11 @@ namespace Csharp
 
 
 
-            ////            2.作业：面向对象：引用类型和值类型
-            ////1.用代码和调试过程演示：
-            ////1.值类型参数的值传递
-            ////测试环境 同一个class下
-            //            static int V(int i)
-            //            {
-            //                i = i + 1;
-            //                return i;
-            //            }
-            //            //------------------
-            //            int i = 1;
-            //            V(i);
-            ////            2.引用类型参数的值传递
-            ////测试环境跨了一个class 指针进去给了b, b又给换回来了
-            //              public static User a(User test)
-            //            {
-            //                User b = new User();
-            //                b = test;
-            //                return b;
-            //            }
-            //            //--------------------------------------------
-            //             User test = new User();
-            //            test.small = 1;
-            //            User.a(test);
-
-            //            //3.值类型参数的引用传递
-            //        static int V(ref int i)
-            //            {
-            //                i = i + 1;
-            //                return i;
-            //            }
-            //            //------------------------------------------------
-            //        static void Main(string[] args)
-            //            {
-            //                int i = 1;
-            //                V(ref i);
-            //            }
 
 
-            //            //4.引用类型参数的引用传递
-            //         public static User a(ref User test)
-            //            {
-            //                User b = test;
-            //                return b;
-            //            }
-
-            //            //--------------------------------------------------------
-            //                        User test = new User();
-            //            test.small = 1;
-            //            User.a(ref test);
-
-            //            //5.return代替引用类型的引用传递
-            //          public static User a(User test)
-            //            {
-            //                User b = new User();
-            //                b.small = 1;
-            //                return b;
-            //            }
-            //            //------------------------------
-            //                        User test = new User();
-            //                          test.small = 1;
-            //                         User.a(test);
-            ////            2.思考：为什么需要区分引用类型和值类型？
-            ////根据数据的大小来设计的
-
-            ////-----------------登录------------------1----
-            ////用户输入的内容
-            //readname = "aaa";
-            //readpassword = "123";
-            //readauthcode = "1234";
-            ////声明
-
-            //User han = new User("hanjiabao", "123", "1234");
-            ////调用对象方法
-            //if (han.Login(readname, readpassword, readauthcode))
-            //{
-            //    Console.WriteLine("登录成功");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("登录失败");
-            //}
 
             ////-------------------求助问题的发布----------------------
-            ////用户输入的内容
-            //string readtitle = Console.ReadLine();
-            //string readbody = Console.ReadLine();
-            //DateTime readpublishtime = new DateTime(Convert.ToInt64(Console.ReadLine()));
-            //string readauthor = Console.ReadLine();
 
-            //int readreward = Convert.ToInt32(Console.ReadLine());
-
-            //Console.WriteLine("关键字");
-            //String[] keyword = new string[10];
-            //keyword[0] = Console.ReadLine();
-
-            ////声明
-            //Problem newproblem = new Problem("Problem");
-            ////调用
-            //if (newproblem.Publish(readtitle, readbody, readauthor, readreward, keyword))
-            //{
-            //    Console.WriteLine("发布成功");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("发布失败");
-            //}
 
             ////----------------BB币变动--------------
             ////用户输入
@@ -430,12 +357,7 @@ namespace Csharp
             //newhelpMoney.change(change_number, remark);
 
 
-            ////出入栈
-            //MimicStack stack = new MimicStack(2);
-            ////调用
-            //stack.Push(1);
-            //stack.Push(2);
-            //stack.Pop();
+
 
 
             ////            用代码证明struct定义的类型是值类型

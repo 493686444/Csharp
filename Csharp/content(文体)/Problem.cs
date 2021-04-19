@@ -10,10 +10,10 @@ namespace Csharp
     {
         #region  构造函数
 
-        public Problem(string kind,string body)
+        public Problem(string kind)
             : base(kind)
         {
-            Body = body; //1.每一个Problem对象一定有Body赋值
+
         }
 
         #endregion
@@ -39,14 +39,17 @@ namespace Csharp
                     get { return _reward; }
                 }
 
+        public Repoistory repoistory;
         public int Rewardtype;
         public int Answer;
         public int Summary;
 
         #endregion
 
+
+
         #region 功能---发布(Publish)
-        public  bool Publish(string readtitle, string readbody,
+        public bool Publish(string readtitle, string readbody,
                           string readauth,
                          int readreward, string[] keyword)
         {
@@ -70,6 +73,25 @@ namespace Csharp
         }
         #endregion
         //这两个需要重做一下
+
+
+ 
+
+
+        //还没有写内容
+        #region 删除
+        public void Delete(int Id) { }
+
+        #endregion
+
+        #region 获取1条求助
+        public void Load(int Id) 
+        { 
+        
+        }
+
+        #endregion
+
         #region 实现---Publish
         public override void Publish()
         {
@@ -85,13 +107,6 @@ namespace Csharp
         }
 
         #endregion
-
-
-
-        //待补充完成(因为面向对象,所以先搁置)
-        //static public bool Load(int Id) { }
-        //static public bool Delete(int Id) { }
-        //public bool repoistory() { }
 
     }
 }
