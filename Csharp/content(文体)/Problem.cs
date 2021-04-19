@@ -10,10 +10,10 @@ namespace Csharp
     {
         #region  构造函数
 
-        public Problem(string kind)
+        public Problem(string kind,string body)
             : base(kind)
         {
-
+            Body = body; //1.每一个Problem对象一定有Body赋值
         }
 
         #endregion

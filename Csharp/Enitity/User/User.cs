@@ -12,15 +12,10 @@ namespace Csharp
        : Entity, ISendMessage, IChat
     {
         #region 构造函数
-        public User()
-        {
-
-        }
         public User(string name, string password, string authcore)
         {
             this.Name = name;
-            Password = password;
-            Authcore = authcore;
+            Password = password;//2.每一个User对象一定有Name和Password赋值
         }
         #endregion
 
