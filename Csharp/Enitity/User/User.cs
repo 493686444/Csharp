@@ -55,25 +55,28 @@ namespace Csharp
         #region 函数方法(功能)
 
         #region 功能---注册
-        public bool Register(
-           string readname, string readpassword, string readpasswordcopy,
-           string readinvitedby, string readauthcore)
+        public bool Register(string readpasswordcopy,User readuser
+           )
         {
-            if (readname is null || readpassword is null)
+            if (readuser.Password is null || readuser.Name is null)
             { return false; }
-            else
+            else//(上一个命题的  反命题 )
             {
-                if (Invitedby == readinvitedby &&
-                    readpassword == readpasswordcopy &&
-                    readauthcore == Authcore)
+                if (readuser.Invitedby == Invitedby &&
+                    readuser.Password == readpasswordcopy &&
+                   readuser.Authcore == Authcore)
                 {
-                    Password = readpassword;
-                    Name = readname;
-                    Invitedby = readinvitedby;
+                    Password = readuser.Password;
+                    Name = readuser.Name;
+                    Invitedby = readuser.Invitedby;
+                    Authcore = readuser.Authcore;
                     return true;
                 }
+                else
+                {
+                    return false;
+                }
             }
-            return false;
         }
         #endregion
 

@@ -198,8 +198,30 @@ namespace Csharp
         }
         #endregion
 
+        #region 冒泡排序
+        public static void bubble(int[] a_ints)
+        {
+            int Vc;
+            for (int i = 1; i < a_ints.Length; i++)
+            {
+                for (int j = 0; j < a_ints.Length - i; j++)
+                {
+                    if (a_ints[j] > a_ints[j + 1])
+                    {
+                        Vc = a_ints[j];
+                        a_ints[j] = a_ints[j + 1];
+                        a_ints[j + 1] = Vc;
+                    }
+                    //else { }
+                }
+                Console.WriteLine(a_ints[i]);
+            }
+        }
+
+        #endregion
+
         #region 二分查找
-        static public int BinarySeek(int[] numbers, int target)
+        public static int BinarySeek(int[] numbers, int target)
         {
             int left = 0, right = numbers.Length - 1, middle;
             while (true)
@@ -222,6 +244,6 @@ namespace Csharp
             }
         }
         #endregion
-
     }
 }
+

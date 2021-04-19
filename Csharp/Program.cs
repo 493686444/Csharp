@@ -27,6 +27,7 @@ namespace Csharp
             #region 2.电脑计算并输出：[(23 + 7)x12-8]÷6的小数值
             //  Console.WriteLine(Math.Round((Single)((23 + 7) * 12 - 8) / 6, 2));
             #endregion
+
             #endregion
 
             #region 分支：if...else
@@ -35,9 +36,10 @@ namespace Csharp
 
             #region 数组
             ////将源栈同学姓名/昵称分别：
-            #region 1.按进栈时间装入一维数组，
+            #region 1.按进栈时间装入一维数组
             //string[] names = { "小红", "小明", "小刚" };
             #endregion
+
             #region 2.按座位装入二维数组
             ////方法一 
             //string[,] seats = new string[2, 3];
@@ -53,8 +55,6 @@ namespace Csharp
             ////并输出共有多少名同学。
             //Console.WriteLine(names.GetLength(1));
             #endregion
-
-
 
             #endregion
 
@@ -126,6 +126,7 @@ namespace Csharp
             //    Console.WriteLine();
             //}
             #endregion
+
             #endregion
 
             #region  方法基础：声明 / 调用 / 返回值
@@ -150,11 +151,13 @@ namespace Csharp
             #endregion
 
             #region 方法进阶：值/引用传递
+
             #region 1.利用ref调用Swap()方法交换两个同学的床位号
             //int hjb = 1;
             //int xkp = 2;
             //procedure.changebed(ref hjb,ref xkp);
             #endregion
+
             #region 2.将登陆的过程封装成一个方法LogOn()，调用之后能够获得：
             {
                 //true / false，表示登陆是否成功
@@ -166,6 +169,7 @@ namespace Csharp
             #endregion
 
             #region 方法进阶：参数：重载/可选/params
+
             #region  1.定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
             {
                 //最小值min（默认为1） 
@@ -180,15 +184,30 @@ namespace Csharp
             //int number = 10;
             //procedure.GetArray(min,span,number);
             #endregion
-            #region 实现二分查找，方法名BinarySeek(int[] numbers, int target)：
+
+            #region 2.实现二分查找，方法名BinarySeek(int[] numbers, int target)：
             {
                 //传入一个有序（从大到小 / 从小到大）数组和数组中要查找的元素
                 //如果找到，返回该元素所在的下标；否则，返回 - 1
             }
-            int[] numbers = new int[9] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-            int target = 3;
-            procedure.BinarySeek(numbers, target);
+            //int[] numbers = new int[9] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+            //int target = 3;
+            //procedure.BinarySeek(numbers, target);
 
+            #endregion
+
+            #endregion
+
+            #region 两个算法
+
+            #region 冒泡排序
+            //int[] a_ints= { 2, 7, 3, 9, 4, 7, 5 };
+            //procedure.bubble(a_ints);
+
+            #endregion
+
+            #region 快排
+            //搁置
             #endregion
 
             #endregion
@@ -198,15 +217,56 @@ namespace Csharp
 
 
             #region 面向对象
-            #region 登录功能----User完成
+
+            #region 类和对象
+
+            #region 登录功能----User
             //User hjb = new User();
             //hjb.Name = "hjb";
             //hjb.Password = "123";
             //hjb.Authcore = "q1q1";
             //hjb.Login();
+            #endregion
+
+            #region 注册功能---User
+
+            //User readuser = new User();
+            //Console.WriteLine("name");
+            //readuser.Name= Console.ReadLine();
+            //Console.WriteLine("password");
+            //readuser.Password= Console.ReadLine();
+            //Console.WriteLine("invitedby");
+            //readuser.Invitedby= Console.ReadLine();
+            //Console.WriteLine( "authcore");
+            //readuser.Authcore= Console.ReadLine();
+            //Console.WriteLine(  "second password");
+            //string readpasswordcopy = Console.ReadLine();
+
+            //User newuser = new User();
+            //newuser.Invitedby = "han";
+            //newuser.Authcore = "1234";
+
+            //if (newuser.Register(readpasswordcopy, readuser))
+            //{  Console.WriteLine("注册成功"); }
+            //else
+            //{  Console.WriteLine("注册失败"); }
+
+
 
             #endregion
+
+            #region MyRegion
+
             #endregion
+
+            #endregion
+
+
+
+
+
+
+            #endregion 面向对象结束
 
 
 
@@ -276,26 +336,6 @@ namespace Csharp
             //                         User.a(test);
             ////            2.思考：为什么需要区分引用类型和值类型？
             ////根据数据的大小来设计的
-            ////------------------注册------------------------
-            //string readname = Console.ReadLine();
-            //string readpassword = Console.ReadLine();
-            //string readpasswordcopy = Console.ReadLine();
-
-            //string readinvitedby = Console.ReadLine();
-            //string readauthcode = Console.ReadLine();
-            ////声明
-            //User newuser = new User();
-            //newuser.Invitedby = "han";
-            //newuser.Authcore = "1234";
-            //if (newuser.Register(readname, readpassword, readpasswordcopy, readinvitedby, readauthcode))
-            //{
-            //    Console.WriteLine("注册成功");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("注册失败");
-
-            //}
 
             ////-----------------登录------------------1----
             ////用户输入的内容
