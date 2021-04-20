@@ -380,6 +380,19 @@ namespace Csharp
             #endregion 面向对象结束
 
 
+            #region 源代码 测试区
+
+
+            MyTest a = new MyTest();
+            a.b = 1; 
+            var b = a.GetType(). ;
+            Console.WriteLine(b);
+
+          
+
+
+
+            #endregion
 
 
 

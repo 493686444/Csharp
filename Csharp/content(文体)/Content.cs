@@ -10,6 +10,8 @@ namespace Csharp
         public Content(string kind)
         {
             _kind = kind;
+            _createTime=DateTime.Now;
+            _publishTime = DateTime.Now;   //这两个时间有点分不清区别
         }
 
         #endregion
@@ -20,8 +22,10 @@ namespace Csharp
         public string Body;
         public string Author;
 
-        private DateTime _createTime=DateTime.Now; 
-        public DateTime PublishTime { get { return _createTime; } }
+        
+        public DateTime _createTime { get; } 
+        public DateTime _publishTime { get; } 
+
         protected string _kind;  //只能被子类使用
 
         #endregion
