@@ -20,8 +20,9 @@ namespace Csharp
         #endregion
 
         #region 数据
-        //公有
-        public TokenManager Tokens;
+
+        public TokenManager Tokens; //权限
+
         //公有(假私有)
         private string _name;
         public string Name
