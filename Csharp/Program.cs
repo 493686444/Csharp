@@ -301,10 +301,6 @@ namespace Csharp
 
             #endregion
 
-
-
-
-
             #region 引用类型和值类型
 
             ////值类型参数的值传递
@@ -390,8 +386,6 @@ namespace Csharp
 
 
 
-            ////-------------------求助问题的发布----------------------
-
 
             ////----------------BB币变动--------------
             ////用户输入
@@ -407,20 +401,6 @@ namespace Csharp
             //newhelpMoney.Remark="无";
             ////调用
             //newhelpMoney.change(change_number, remark);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         }

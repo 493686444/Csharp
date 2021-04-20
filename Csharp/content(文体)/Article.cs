@@ -7,35 +7,32 @@ namespace Csharp
     class Article
         : Content, IAgreeOrNot
     {
-        //0.0构造函数
+        #region 构造函数
         public Article(string kind)
         : base(kind)
         {
         }
-        //1.数据
-                //和求助共有()
-                    //公有(假私有)
-                    private string[] _keyword = new string[10];
-                    public string this[int index]
-                    {
-                        get { return _keyword[index]; }
-                        set { _keyword[index] = value; }
-                    }
-                //和建议共有
-                public string comment;
+        #endregion
 
-        //三者共有(写在父类)
+        #region 数据
+        private string[] _keyword = new string[10];
+        public string this[int index]
+        {
+            get { return _keyword[index]; }
+            set { _keyword[index] = value; }
+        }
 
-   
-        public void Change()
+        public string comment;
+        #endregion
+
+
+        #region 实现---发布
+        public override void Publish()
         {
 
         }
-      
-        public override void Publish() 
-        {
-        
-        }
+        #endregion
+
         #region 实现---Agree&Disagree
         public override void Agree()
         {
@@ -46,6 +43,14 @@ namespace Csharp
 
         }
         #endregion
+
+
+        public void Change()
+        {
+
+        }
+
+
 
     }
 }

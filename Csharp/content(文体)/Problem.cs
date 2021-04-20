@@ -72,19 +72,27 @@ namespace Csharp
             { return false; } 
         }
         #endregion
-        //这两个需要重做一下
+        //这两个需要整合一下,不过暂时先搁置
+        //没设置参数,因为在实现
+        #region 实现---Publish
+        public override void Publish()
+        {
 
-
- 
-
-
-        //还没有写内容
-        #region 删除
-        public void Delete(int Id) { }
-
+        }
         #endregion
 
-        #region 获取1条求助
+
+
+
+
+        #region 功能---删除
+        public void Delete(int Id) 
+        { 
+        
+        }
+        #endregion
+
+        #region 功能---获取1条求助
         public void Load(int Id) 
         { 
         
@@ -92,20 +100,11 @@ namespace Csharp
 
         #endregion
 
-        #region 实现---Publish
-        public override void Publish()
-        {
-
-        }
-
-        #endregion 
-
         #region 实现---Change
         public void Change()
         {
 
         }
-
         #endregion
 
         #region 实现---Agree&Disagree

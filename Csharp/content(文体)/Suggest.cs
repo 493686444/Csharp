@@ -14,16 +14,17 @@ namespace Csharp
 
         }
         #endregion
-        //1.数据
-        //和文章公有
+
         public string comment;
 
 
+        #region 实现---Publish
+         public override void Publish()
+            {
 
-        public override void Publish()
-        {
-
-        }
+            }
+        #endregion
+   
         #region 实现---Agree&Disagree
         public override void Agree()
         {
