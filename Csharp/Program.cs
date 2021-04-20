@@ -337,6 +337,7 @@ namespace Csharp
             //int thevalue = 1;  //不报错      int struct类型
             //Problem theref = 1;    //报错  class 引用类型
             #endregion
+
             #region 2.源栈的学费是按周计费的，所以请实现这两个功能：
             {
                 //1.函数GetDate()，能计算一个日期若干（日 / 周 / 月）后的日期
@@ -360,8 +361,25 @@ namespace Csharp
 
 
             #endregion
+
             #endregion
 
+            #region Object和装箱拆箱
+            ////1.在https://source.dot.net/中找到 Console.WriteLine(new Student()); 输出Student类名的源代码
+            //ThePublic thepublic = new ThePublic();
+            //Console.WriteLine(thepublic.GetType().Name);        /*这个可以是实例后的对象*/       // (可用于猜数字部分)  
+            //Console.WriteLine(typeof(User));                                /*这个只可以是类型*/
+            //2.思考dynamic和var的区别，并用代码予以演示
+            ////一个是动态,一个是自动调整(第一次会自动适应数值类型,以后会一直用这个数据类型)
+            //dynamic dynamic = 1;
+            //dynamic = "123";   /*没报错*/
+            //var var = 1;
+            //var = "123";   /*报错了*/
+            ////3.构造一个能装任何数据的数组，并完成数据的读写
+            //object[] all = new object[3] { 1, "2", true };
+            //all[0] = 2;
+            //bool abool = (bool)all[2];
+            #endregion
 
             #endregion 面向对象结束
 
@@ -397,28 +415,9 @@ namespace Csharp
 
 
 
-            //            声明一个令牌（Token）枚举，包含值：SuperAdmin、Admin、Blogger、Newbie、Registered。
-            //声明一个令牌管理（TokenManager）类：
-            //使用私有的Token类型的_tokens存储所具有的权限
-            //暴露Add(Token)、Remove(Token)和Has(Token)方法，可以添加、删除和判断其有无某个权限
-            //User类中添加一个Tokens属性，类型为TokenManager
 
 
-            ////1.在https://source.dot.net/中找到 Console.WriteLine(new Student()); 输出Student类名的源代码
-            //Entity id = new User();
-            //Console.WriteLine(id.GetType().Name);
-            //Console.WriteLine(typeof(User));/*这个只可以是类型*/
-            ////2.思考dynamic和var的区别，并用代码予以演示
-            ////一个是动态,一个是自动调整(第一次会自动适应数值类型,以后会一直用这个数据类型)
-            //dynamic a = 1;
-            //a = "123";
-            //var b= 1;
-            //b = "123";/*报错了*/
-            ////3.构造一个能装任何数据的数组，并完成数据的读写
-            //object[] box = new object[3] { 1, "2", true };
-            //box[0] = 2;
-            //bool a = (bool)box[2];
-            ////4.使用object改造数据结构栈（MimicStack），并在出栈时获得出栈元素(改造结束)
+
 
 
 

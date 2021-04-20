@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Csharp
 {
+    //4.使用object改造数据结构栈（MimicStack），并在出栈时获得出栈元素
+
     class MimicStack
     {
         #region 构造函数
