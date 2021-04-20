@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Csharp
 {
+
     class HelpMoney
         :Entity
     {

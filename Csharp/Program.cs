@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Csharp
 {
@@ -273,13 +274,16 @@ namespace Csharp
             //{
             //    keyword[i] = Console.ReadLine();
             //}
-            ////声明
-            //Problem myproblem = new Problem("problem");
-            ////调用   (没有返回值的话也可以,但是  失败或者成功的反馈结果  要放在函数里边)
+            //声明
+            Problem myproblem = new Problem("problem");
+            //调用   (没有返回值的话也可以,但是  失败或者成功的反馈结果  要放在函数里边)
             //if (myproblem.Publish(readtitle, readbody, readauthor, readreward, keyword))
             //{ Console.WriteLine("发布成功"); }
             //else
-            //{ Console.WriteLine("发布失败");  }
+            //{ Console.WriteLine("发布失败"); }
+
+
+
 
             #endregion
 
@@ -297,6 +301,16 @@ namespace Csharp
 
             #region HelpMoney(帮帮币) 对象
 
+            #endregion
+
+            #region Article 对象
+            Article myarticle = new Article("Article");    ////不会搁置
+            myarticle
+                .GetType()
+
+                .GetProperty("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance)
+                .SetValue(myarticle, "2020/1/1");
+            Console.WriteLine(myarticle.CreateTime);
             #endregion
 
             #endregion
@@ -361,11 +375,12 @@ namespace Csharp
             #endregion
 
             #region Object和装箱拆箱
+
             ////1.在https://source.dot.net/中找到 Console.WriteLine(new Student()); 输出Student类名的源代码
             //ThePublic thepublic = new ThePublic();
             //Console.WriteLine(thepublic.GetType().Name);        /*这个可以是实例后的对象*/       // (可用于猜数字部分)  
             //Console.WriteLine(typeof(User));                                /*这个只可以是类型*/
-            //2.思考dynamic和var的区别，并用代码予以演示
+            ////2.思考dynamic和var的区别，并用代码予以演示
             ////一个是动态,一个是自动调整(第一次会自动适应数值类型,以后会一直用这个数据类型)
             //dynamic dynamic = 1;
             //dynamic = "123";   /*没报错*/
@@ -377,18 +392,31 @@ namespace Csharp
             //bool abool = (bool)all[2];
             #endregion
 
+            #region 特性的实例化
+
+            Attribute att = Attribute.GetCustomAttribute(
+                typeof(Content).GetMethod("Publish"),   // 从哪找 类/结构/方法/数据
+                typeof(HelpMoneyChangedAttribute));  // 找什么
+                                                     //如果有就实例化它   测试一下有没有实例化
+            Console.WriteLine(((HelpMoneyChangedAttribute)att).amount);
+
+            #endregion
+
             #endregion 面向对象结束
+
+
+
 
 
             #region 源代码 测试区
 
 
-            MyTest a = new MyTest();
-            a.b = 1; 
-            var b = a.GetType(). ;
-            Console.WriteLine(b);
 
-          
+
+
+
+
+
 
 
 
