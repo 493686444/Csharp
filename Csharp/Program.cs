@@ -304,13 +304,13 @@ namespace Csharp
             #endregion
 
             #region Article 对象
-            Article myarticle = new Article("Article");    ////不会搁置
-            myarticle
-                .GetType()
+            //Article myarticle = new Article("Article");    ////不会搁置
+            //myarticle
+            //    .GetType()
 
-                .GetProperty("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance)
-                .SetValue(myarticle, "2020/1/1");
-            Console.WriteLine(myarticle.CreateTime);
+            //    .GetProperty("CreateTime", BindingFlags.NonPublic | BindingFlags.Instance)
+            //    .SetValue(myarticle, "2020/1/1");
+            //Console.WriteLine(myarticle.CreateTime);
             #endregion
 
             #endregion
@@ -394,7 +394,7 @@ namespace Csharp
 
             #region 特性的实例化
 
-            Attribute att = Attribute.GetCustomAttribute(
+            Attribute att = HelpMoneyChangedAttribute.GetCustomAttribute(
                 typeof(Content).GetMethod("Publish"),   // 从哪找 类/结构/方法/数据
                 typeof(HelpMoneyChangedAttribute));  // 找什么
                                                      //如果有就实例化它   测试一下有没有实例化

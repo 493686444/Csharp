@@ -33,7 +33,8 @@ namespace Csharp
 
 
         #region 抽象方法       
-        [HelpMoneyChanged(3)]
+
+        [HelpMoneyChanged(3,Message ="韩佳宝")]
         public abstract void Publish();
         public abstract void Agree();
         public abstract void Disagree();
