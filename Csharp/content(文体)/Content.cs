@@ -4,14 +4,14 @@ using System.Text;
 
 namespace Csharp
 {
-     abstract class  Content//抽象类
+    abstract class Content//抽象类
     {
         #region 构造函数
         public Content(string kind)
         {
             _kind = kind;
-            CreateTime=DateTime.Now;
-            PublishTime = DateTime.Now;   //这两个时间有点分不清区别
+            _createtime = DateTime.Now;
+            _publishtime = DateTime.Now;   //这两个时间有点分不清区别
         }
 
         #endregion
@@ -22,9 +22,12 @@ namespace Csharp
         public string Body;
         public string Author;
 
-        
-        public DateTime CreateTime { get; } 
-        public DateTime PublishTime { get; } 
+        private DateTime _createtime;
+        private DateTime _publishtime;
+        public DateTime CreateTime
+        { get { return _createtime; } } 
+        public DateTime PublishTime
+        { get { return _publishtime; } }
 
         protected string _kind;  //只能被子类使用
 
