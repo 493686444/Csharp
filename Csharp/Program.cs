@@ -10,14 +10,6 @@ namespace Csharp
         {
             #region 面向过程
 
-            #region 控制台项目
-            //无
-            #endregion
-
-            #region 变量和类型
-            //无
-            #endregion
-
             #region 运算符和表达式
 
             #region 1.输出两个整数 / 小数的和 / 差 / 积 / 商
@@ -29,10 +21,6 @@ namespace Csharp
             //  Console.WriteLine(Math.Round((Single)((23 + 7) * 12 - 8) / 6, 2));
             #endregion
 
-            #endregion
-
-            #region 分支：if...else
-            //登录功能 封装在面向对象工作中
             #endregion
 
             #region 数组
@@ -97,12 +85,12 @@ namespace Csharp
 
             #region 4.将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
             //double[] scores = { 79.13, 38.22, 66.31, 44.44, 87.52 };
-            //procedure.Maxandmin(scores);
+            //procedure.GetMin(scores);
             #endregion
 
             #region 5.找到100以内的所有质数（只能被1和它自己整除的数）
             //int number = 100;
-            //procedure.Primenumber(number);
+            //procedure.Primenumber(number);//[test]之后加了返回值,可以直接返回数组
             #endregion
 
             #region 6.生成一个元素（值随机）从小到大排列的数组(随机数的累加)
@@ -304,12 +292,12 @@ namespace Csharp
             #endregion
 
             #region Article 对象
-            
+
             Article myarticle = new Article("Article");   //还是跑不出来,暂且搁置
             myarticle
                 .GetType()
                 .GetField("_createtime", BindingFlags.NonPublic | BindingFlags.Instance)
-                .SetValue(myarticle, new DateTime(2020,2,2));
+                .SetValue(myarticle, new DateTime(2020, 2, 2));
             Console.WriteLine(myarticle.CreateTime);
             #endregion
 
@@ -402,32 +390,46 @@ namespace Csharp
 
             #endregion
 
+
+
             #endregion 面向对象结束
 
 
 
 
 
-            #region 源代码 测试区
+
+
+            //为之前作业添加单元测试，包括但不限于：
+            {
+                //1.数组中找到最大值
+                //2.找到100以内的所有质数
+                //3.猜数字游戏
+                //4.二分查找
+                //5.栈的压入弹出
+            }
 
 
 
 
 
 
+            //继续完成双向链表的测试和开发，实现：
+            {
+                //node3.InsertAfter(node1); 场景
+                //InerstBefore()：在某个节点前插入
+                //Delete()：删除某个节点
+                //[选] Swap()：交互某两个节点
+                //[选] FindBy()：根据节点值查找到某个节点
+            }
+
+      
 
 
 
 
 
-            #endregion
-
-
-
-
-
-
-
+            //忘记用来干啥的了----暂时搁置
             ////----------------BB币变动--------------
             ////用户输入
             //int change_number= Convert.ToInt32(Console.ReadLine());

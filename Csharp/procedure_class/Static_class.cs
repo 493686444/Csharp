@@ -33,48 +33,47 @@ namespace Csharp
         }
         #endregion
 
-        /// <summary>
-        /// 找最值
-        /// </summary>
-        /// <param name="scores"></param>
-        static public void Maxandmin(double[] scores)
+        #region 找最值,最大或者最小
+        static public double GetMax(double[] scores)
         {
             double max = scores[0];
-            double min = scores[0];
             //最高分
             for (int i = 0; i < scores.Length; i++)
             {
                 if (max > scores[i])
-                {
-
-                }
+                { }
                 else
-                {
-                    max = scores[i];
-                }
+                { max = scores[i]; }
             }
             Console.WriteLine(max);
+            return max;
+        }
+        static public double GetMin(double[] scores)
+        {
+            double min = scores[0];
             //最低分
             for (int i = 0; i < scores.Length; i++)
             {
                 if (min < scores[i])
-                {
-
-                }
+                { }
                 else
-                {
-                    min = scores[i];
-                }
+                { min = scores[i]; }
             }
             Console.WriteLine(min);
+            return min;
         }
+        #endregion
+
 
         /// <summary>
         /// 找 质数 合数
         /// </summary>
         /// <param name="number"></param>
-        static public void Primenumber(int number)
+        public static int[] Primenumber(int number)
         {
+            int k = 0;
+            int[] numbers = new int[25];
+            numbers[0] = 2;
             for (int i = 2; i <= number; i++)
             {
                 if (i == 2)
@@ -88,15 +87,19 @@ namespace Csharp
                         if (i % j == 0)
                         {
                             Console.WriteLine(i + "合数");
+
                             break;/*打消合数误为素数*/
                         }
                         else if (j == i - 1)
                         {
                             Console.WriteLine(i + "质数");
+                            k = k + 1;
+                             numbers [k] = i;
                         }
                     }
                 }
             }
+            return numbers;
         }
 
         /// <summary>

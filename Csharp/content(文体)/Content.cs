@@ -18,7 +18,7 @@ namespace Csharp
 
         #region 数据
 
-        public string Title;
+        public string Title;  
         public string Body;
         public string Author;
 
