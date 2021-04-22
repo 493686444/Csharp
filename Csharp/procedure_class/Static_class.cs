@@ -300,7 +300,20 @@ namespace Csharp
 
         #endregion
 
-
+        #region mimicjoin
+        public static string mimicJoin(string parter, params string[] adder)
+        {
+            string temp=null;
+            for (int i = 0; i < adder.Length; i++)
+            {
+                if (i==0)
+                { temp = adder[0]; }
+                else
+                { temp = temp+parter + adder[i]; }
+            }
+            return temp;
+        }
+        #endregion
 
     }
 }

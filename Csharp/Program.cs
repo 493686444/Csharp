@@ -397,12 +397,8 @@ namespace Csharp
             #region mimicJoin
 
             //// mimicJoin("-", "a", "b", "c", "d")，其运行结果为：a - b - c - d
-            //stringer mystringer = new stringer();
-            //mystringer = mystringer.mimicJoin("-", "a").mimicJoin("-", "b").mimicJoin("-", "c").mimicJoin("-", "d");
-            //Console.WriteLine(mystringer.score);
-            //mystringer = mystringer.mimicJoins("-", "a", "b", "c", "d");
-            //Console.WriteLine(mystringer.score);
-    
+            //Console.WriteLine(procedure.mimicJoin("-", "a", "b", "c", "d"));
+
             #endregion
 
             #endregion 面向对象结束
