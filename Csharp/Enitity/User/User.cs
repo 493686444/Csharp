@@ -25,18 +25,44 @@ namespace Csharp
 
         //公有(假私有)
         private string _name;
-        public string Name
+        public string Name //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
         { 
             get { return _name; }
             set
             {
-                if (value == "admin")
-                {  _name = "系统管理员"; }//2.如果user.Name为“admin”，输入时修改为“系统管理员”
+                if (value.Contains("admin") || value.Contains("17bang")|| value.Contains("管理员"))
+                { Console.WriteLine("不能含有admin、17bang、管理员等敏感词"); }
                 else
-                { _name = value; }
+                {
+                    if (value == "admin")//管理员的后台账户
+                    {  _name = "系统管理员";  }//2.如果user.Name为“admin”，输入时修改为“系统管理员”
+                    else
+                    { _name = value; }
+                } 
             }
         }
-        public string Password { private get; set; }//1.user.Password在类的外部只能改不能读
+        
+
+        private string _password;
+        public string Password 
+        {
+            set
+            {
+                if (value.ToLower() == value)
+                { Console.WriteLine("密码必须大小写都有"); }
+                else
+                {
+                    if (value.Length < 6)
+                    { Console.WriteLine("不得少于6个"); }
+                    else
+                    { _password = value; }//必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成(搁置)   //|| "!" || "@" || "#" || "$" || "%" || "^" || "&" || "*" || "(" || ")" || "_" || "+"
+                }
+            }
+            private get { return _password; }
+        }
+        //1.user.Password在类的外部只能改不能读
+
+
         public string Authcore { get; set; }
 
         public string Invitedby;

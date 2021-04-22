@@ -4,7 +4,7 @@ using System;
 
 namespace MyTest
 {
-    public class DLLTest
+    public class DLLTests
     {
         //测试的公用数据放在这里
         DLL node1 = new DLL(); DLL node2 = new DLL(); DLL node3 = new DLL();
@@ -40,7 +40,7 @@ namespace MyTest
         public void DeleteTest()
         {
             node1.Delete();//最边边
-            Assert.AreEqual(null, node2.left);
+            Assert.AreEqual(null, node2.left);//有时候红有时候绿...... 因为跑得是上一次的build
             node3.Delete();//中间
             Assert.AreEqual(node2, node4.left);
             Assert.AreEqual(node4, node2.right);

@@ -203,7 +203,6 @@ namespace Csharp
 
             #endregion 面向过程-结束
 
-
             #region 面向对象
 
             #region 一些对象(调用工作,在此处进行)
@@ -293,12 +292,12 @@ namespace Csharp
 
             #region Article 对象
 
-            Article myarticle = new Article("Article");   //还是跑不出来,暂且搁置
-            myarticle
-                .GetType()
-                .GetField("_createtime", BindingFlags.NonPublic | BindingFlags.Instance)
-                .SetValue(myarticle, new DateTime(2020, 2, 2));
-            Console.WriteLine(myarticle.CreateTime);
+            //Article myarticle = new Article("Article");   //还是跑不出来,暂且搁置
+            //myarticle
+            //    .GetType()
+            //    .GetField("_createtime", BindingFlags.NonPublic | BindingFlags.Instance)
+            //    .SetValue(myarticle, new DateTime(2020, 2, 2));
+            //Console.WriteLine(myarticle.CreateTime);
             #endregion
 
             #endregion
@@ -390,60 +389,25 @@ namespace Csharp
 
             #endregion
 
+            #region GetCount 
+            //string container = "12H456H789", target = "H";
+            //Console.WriteLine(procedure.GetCount(container, target)); 
+            #endregion
 
+            #region mimicJoin
+
+            //// mimicJoin("-", "a", "b", "c", "d")，其运行结果为：a - b - c - d
+            //stringer mystringer = new stringer();
+            //mystringer = mystringer.mimicJoin("-", "a").mimicJoin("-", "b").mimicJoin("-", "c").mimicJoin("-", "d");
+            //Console.WriteLine(mystringer.score);
+            //mystringer = mystringer.mimicJoins("-", "a", "b", "c", "d");
+            //Console.WriteLine(mystringer.score);
+    
+            #endregion
 
             #endregion 面向对象结束
 
 
-
-
-
-
-
-            //为之前作业添加单元测试，包括但不限于：
-            {
-                //1.数组中找到最大值
-                //2.找到100以内的所有质数
-                //3.猜数字游戏
-                //4.二分查找
-                //5.栈的压入弹出
-            }
-
-
-
-
-
-
-            //继续完成双向链表的测试和开发，实现：
-            {
-                //node3.InsertAfter(node1); 场景
-                //InerstBefore()：在某个节点前插入
-                //Delete()：删除某个节点
-                //[选] Swap()：交互某两个节点
-                //[选] FindBy()：根据节点值查找到某个节点
-            }
-
-      
-
-
-
-
-
-            //忘记用来干啥的了----暂时搁置
-            ////----------------BB币变动--------------
-            ////用户输入
-            //int change_number= Convert.ToInt32(Console.ReadLine());
-            //string remark = Console.ReadLine();
-            ////声明
-            //HelpMoney newhelpMoney = new HelpMoney();
-            ////数据赋值
-            //newhelpMoney.Useable=10;
-            //newhelpMoney.Freeze=true;
-            //newhelpMoney.Kind="金";
-            //newhelpMoney.Change_number=1;
-            //newhelpMoney.Remark="无";
-            ////调用
-            //newhelpMoney.change(change_number, remark);
 
 
         }

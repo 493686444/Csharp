@@ -8,8 +8,8 @@ namespace Csharp
     {
         public FactoryContext()
         {
-            int a = 1;
-            int b = 2;
+            a = 1;
+            b = 2;
         }
         int a;
         int b;

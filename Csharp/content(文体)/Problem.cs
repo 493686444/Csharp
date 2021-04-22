@@ -21,23 +21,23 @@ namespace Csharp
         #region 数据
 
         private string[] _keyword = new string[10];
-                public string this[int index]//3.一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写。
-                {
-                    get { return _keyword[index]; }
-                    set { _keyword[index] = value; }
-                }
+        public string this[int index]//3.一起帮的求助可以有多个（最多10个）关键字，请为其设置索引器，以便于我们通过其整数下标进行读写。
+        {
+            get { return _keyword[index]; }
+            set { _keyword[index] = value; }
+        }
         private int _reward;//Article也有这个
-                public int Reward
-                {
-                    set
-                    {
-                        if (value < 0)
-                        { Console.WriteLine("奖励不可以小于零"); }//3.problem.Reward不能为负数
+        public int Reward
+        {
+            set
+            {
+                if (value < 0)
+                { Console.WriteLine("奖励不可以小于零"); }//3.problem.Reward不能为负数
                 else
-                        { _reward = value; }
-                    }
-                    get { return _reward; }
-                }
+                { _reward = value; }
+            }
+            get { return _reward; }
+        }
 
         public Repoistory repoistory;
         public int Rewardtype;
@@ -62,14 +62,14 @@ namespace Csharp
                 {
                     Title = readtitle;
                     Body = readbody;
-                    Author = readauth; 
+                    Author = readauth;
                     for (int i = 0; i < _keyword.Length; i++)
                     { _keyword[i] = keyword[i]; }
                     return true;
                 }
             }
             else
-            { return false; } 
+            { return false; }
         }
         #endregion
         //这两个需要整合一下,不过暂时先搁置
@@ -86,16 +86,16 @@ namespace Csharp
 
 
         #region 功能---删除
-        public void Delete(int Id) 
-        { 
-        
+        public void Delete(int Id)
+        {
+
         }
         #endregion
 
         #region 功能---获取1条求助
-        public void Load(int Id) 
-        { 
-        
+        public void Load(int Id)
+        {
+
         }
 
         #endregion
@@ -108,13 +108,13 @@ namespace Csharp
         #endregion
 
         #region 实现---Agree&Disagree
-        public override void Agree() 
+        public override void Agree()
         {
-        
+
         }
-        public override void Disagree() 
-        { 
-        
+        public override void Disagree()
+        {
+
         }
         #endregion
 

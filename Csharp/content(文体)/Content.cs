@@ -17,8 +17,19 @@ namespace Csharp
         #endregion
 
         #region 数据
-
-        public string Title;  
+        //确保文章（Article）的标题不能为null值，也不能为一个或多个空字符组成的字符串，而且如果标题前后有空格，也予以删除
+        public string _title;  
+        public string Title 
+        {
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                { Console.WriteLine("不可以为null或空字符"); }
+                else
+                { _title = value.Trim() ; }
+            }
+            get { return _title; }
+        }
         public string Body;
         public string Author;
 

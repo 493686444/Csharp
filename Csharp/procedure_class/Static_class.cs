@@ -278,15 +278,29 @@ namespace Csharp
         }
         #endregion
 
+        #region GetCount
+        public static int GetCount(string container, string target)
+        {
+            int sum = 0;
+            while (true)
+            {
+                if (container.IndexOf(target) != -1)
+                { container = container.Remove(container.IndexOf(target), 1)  ;  sum = sum + 1;   }
+                else 
+                { return sum; }
+            }
+        }
+        #endregion
 
         #region 修改创建和发布时间
-
         public static void Changtime()
-        { 
-            
+        {
+
         }
 
         #endregion
+
+
 
     }
 }
