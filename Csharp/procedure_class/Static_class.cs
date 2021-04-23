@@ -223,6 +223,7 @@ namespace Csharp
 
         #endregion
 
+        //用泛型改造二分查找、堆栈和双向链表
         #region 二分查找
         public static int BinarySeek(int[] numbers, int target)
         {

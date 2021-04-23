@@ -6,8 +6,9 @@ namespace Csharp
 {
     public class Entity
     {
-        //1.数据
-        //公有
-         public int id;
+
+        //改造Entity类，让其Id可以为任意类型
+        public int id;
+
     }
 }

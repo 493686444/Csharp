@@ -179,6 +179,7 @@ namespace Csharp
                 //传入一个有序（从大到小 / 从小到大）数组和数组中要查找的元素
                 //如果找到，返回该元素所在的下标；否则，返回 - 1
             }
+
             //int[] numbers = new int[9] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
             //int target = 3;
             //procedure.BinarySeek(numbers, target);
@@ -403,7 +404,14 @@ namespace Csharp
 
             #endregion 面向对象结束
 
+            #region 进阶
 
+            //改造Entity类，让其Id可以为任意类型
+            //用泛型改造二分查找、堆栈和双向链表
+            //用泛型改造“取数组中最大值”（提示：IComparable）
+            //用代码演示泛型接口的协变 / 逆变
+
+            #endregion
 
 
         }

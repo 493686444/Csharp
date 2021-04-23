@@ -67,42 +67,65 @@ namespace Csharp
         #endregion
 
         #region 功能---移动
-        public static void Swap(DLL theright, DLL theleft)//两个对象之间交换 静态更好
+        public static void Swap(DLL theleft, DLL theright)//两个对象之间交换 静态更好
         {
             //思路一 : 利用加减做,  思路二 : 备份6个对象  思路三 : 面向过程做
-
-            //这个代码没有完善  左右连在一起的情况没写
-
-            //备份
-            DLL theleftup = theleft, therightup = theright;
-            //修改右槽
-            theright.left.right = theleft;
-            if (theright.right != null)
-            { theright.right.left = theleft; }
-            //else {  }
-            
-            //修改左槽
-            theleft.right.left = theright;
-            if (theleft.left != null)
-            { theleft.right.left = theright;  }
-            //else { }
-
-            //修改左者
-            DLL backup_left = theleft;  //备份
-            theleft.left = theright.left;
-            if (theright.right!=null)
-            { theleft.right = theright.right; }
+          
+                //当左右连在一起
+            if (theright.left == theleft)
+            {
+                //修改槽
+                if (theleft.left != null)
+                { theleft.left.right = theright; } /*else   {  }*/
+                if (theright.right != null)
+                { theright.right.left = theleft; } /*else   {  }*/
+                //备份
+                DLL newright = theright, newleft = theleft;
+                //修改者
+                //
+                theleft.left = theright;
+                //if (newright.right == null)
+                //{ theleft.right = null; }
+                //else
+               /* { */theleft.right = newright.right; /*}*/
+                //
+                theright.right = theleft;
+                //if (newleft.left == null)
+                //{ theright.left = null; }
+                //else
+               /* { */theright.left = newleft.left; /*}*/
+            }
             else
-            { theleft.right = null; }
-            //修改右者
-            theright.right = backup_left.right;
-            if (backup_left.left != null)
-            { theright.left = backup_left.left; }
-            else
-            { theright.left = null; }
+            {
+                //当左者和右者不连在一起
+                //修改右槽
+                theright.left.right = theleft;
+                if (theright.right != null)
+                { theright.right.left = theleft; }
+                //else {  }
 
+                //修改左槽
+                theleft.right.left = theright;
+                if (theleft.left != null)
+                { theleft.right.left = theright; }
+                //else { }
 
+                //修改左者
+                DLL backup_left = theleft;  //备份
+                theleft.left = theright.left;
+                if (theright.right != null)
+                { theleft.right = theright.right; }
+                else
+                { theleft.right = null; }
 
+                //修改右者
+                theright.right = backup_left.right;
+                if (backup_left.left != null)
+                { theright.left = backup_left.left; }
+                else
+                { theright.left = null; }
+            }
+         
         }
         //想写个ChangeTo的方法( 属于对象 但是多余,还是算了)
         #endregion

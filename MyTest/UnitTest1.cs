@@ -13,6 +13,7 @@ namespace MyTest
         [SetUp]//这里对公用数据进行加工处理
         public void Setup()   //为什么不在这里直接设置字段   因为方法内的数据不公用(否则也就不会出现返回值这个概念了)
         {
+            node1.left = null;node5.right = null;
             node1.right = node2; node2.right = node3; node3.right = node4; node4.right = node5;
             node5.left = node4; node4.left = node3; node3.left = node2; node2.left = node1;
         }
@@ -48,10 +49,18 @@ namespace MyTest
         [Test]
         public void Swap()
         {
+            DLL.Swap(node1, node2);
+            Assert.AreEqual(node1,node2.right);
+            //Assert.IsNull(node2.left);//不懂为啥这个过不来
+        }
+        [Test]
+        public void Swap2()
+        {
             DLL.Swap(node2, node4);
             Assert.AreEqual(node2, node5.left);
-            Assert.AreEqual(node4, node3.right);
+            Assert.AreEqual(node2, node3.right);
         }
+
 
     }
     public class Tests
