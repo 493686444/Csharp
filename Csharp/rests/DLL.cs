@@ -69,12 +69,12 @@ namespace Csharp
         #region 功能---移动
         public static void Swap(DLL theleft, DLL theright)//两个对象之间交换 静态更好
         {
-            //思路一 : 利用加减做,  思路二 : 备份6个对象  思路三 : 面向过程做
+           
           
                 //当左右连在一起
             if (theright.left == theleft)
-            {
-                //修改槽
+            {  ////思路0
+               //修改槽
                 if (theleft.left != null)
                 { theleft.left.right = theright; } /*else   {  }*/
                 if (theright.right != null)
@@ -87,13 +87,28 @@ namespace Csharp
                 //if (newright.right == null)
                 //{ theleft.right = null; }
                 //else
-               /* { */theleft.right = newright.right; /*}*/
+                /* { */
+                theleft.right = newright.right; /*}*/
                 //
                 theright.right = theleft;
                 //if (newleft.left == null)
                 //{ theright.left = null; }
                 //else
-               /* { */theright.left = newleft.left; /*}*/
+                /* { */
+                theright.left = newleft.left; /*}*/
+
+
+                ////思路2
+                //DLL newright = theright, newleft = theleft;
+                //newright.left = theleft.left;newright.right = theleft.right;
+                //newleft.left = theright.left;newleft.right = theright.right;
+                //theright = newright;
+                //theleft = newleft;
+                ////思路1
+                //DLL newright = theright;
+                //theright.Delete();
+                //theleft.Addleft(theright);
+                //theleft.Addright(newright);
             }
             else
             {
