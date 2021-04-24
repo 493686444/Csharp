@@ -70,7 +70,7 @@ namespace MyTest
         public void GetMinTest()
         {
             double[] scores = { 1, 2, 3, 4, 5, };
-            double numbers = procedure.GetMin(scores);
+            double numbers = Procedure.GetMin(scores);
             Assert.AreEqual(1, numbers);  // Assert.AreEqual(ÆÚÍû, student.Age);
         }
 
@@ -79,7 +79,7 @@ namespace MyTest
         {
             int[] expectations = new int[25]
             { 2, 3, 5, 7, 11, 13, 17,19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 };
-            int[] numbers = procedure.Primenumber(100);
+            int[] numbers = Procedure.Primenumber(100);
             Assert.AreEqual(expectations, numbers);
         }
 
@@ -93,7 +93,7 @@ namespace MyTest
         public void BinarySeekTest()
         {
             int[] numbers = new int[10] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            int expection = procedure.BinarySeek(numbers, 3);
+            int expection = Procedure.BinarySeek(numbers, 3);
             Assert.AreEqual(4, expection);
         }
 

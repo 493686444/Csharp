@@ -6,17 +6,17 @@ namespace Csharp
 {
     //4.使用object改造数据结构栈（MimicStack），并在出栈时获得出栈元素
 
-    public class MimicStack
+    public class MimicStack<T>
     {
         #region 构造函数
         public MimicStack(int x)
         {
-            array = new object[x];
+            array = new T[x];
         }
         #endregion
 
         #region 数据
-        public object[] array;
+        public T[] array;
         public int pointer = -1;
         #endregion
 
@@ -32,14 +32,14 @@ namespace Csharp
                 return true;
             }
         }
-        public object Push(int x)
+        public object Push(T sth)
         {
             pointer = pointer + 1;
             if (pointer == array.Length)
             { Console.WriteLine("栈溢出"); return null; }
             else
             {
-                array[pointer] = x;
+                array[pointer] = sth;
                 Console.WriteLine("已放入" + array[pointer]);
                 return array[pointer];
             }
