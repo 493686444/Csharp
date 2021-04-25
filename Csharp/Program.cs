@@ -180,9 +180,9 @@ namespace Csharp
                 //如果找到，返回该元素所在的下标；否则，返回 - 1
             }
 
-            int[] numbers = new int[9] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-            int target = 3;
-            procedure.BinarySeek(numbers, target);
+            //int[] numbers = new int[9] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+            //int target = 3;
+            //procedure.BinarySeek(numbers, target);
 
             #endregion
 
