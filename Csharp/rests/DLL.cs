@@ -1,22 +1,34 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Csharp
 {
     //双向链表(Doubly Linked List)
-    public class DLL
+    public class DLL<T>:IEnumerable<DLL<T>>
     {
+
+        public IEnumerator<DLL<T>> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         #region 数据
-        public int ID;
-        public DLL left;
-        public DLL right;
+        public T Content;
+        public DLL<T> left;
+        public DLL<T> right;
 
         #endregion
 
-        //方法可精简(将同者取出),但精简后不易理解
+   
         #region 功能---加
-        public void Addleft(DLL target)
+        public void Addleft(DLL<T> target)
         {
             if (this.left == null)
             { this.left = target; }
@@ -29,7 +41,7 @@ namespace Csharp
                 this.left = target;
             }
         }
-        public void Addright(DLL target)
+        public void Addright(DLL<T> target)
         {
             if (this.right == null)
             { this.right = target; }
@@ -67,7 +79,7 @@ namespace Csharp
         #endregion
 
         #region 功能---移动
-        public static void Swap(DLL theleft, DLL theright)//两个对象之间交换 静态更好
+        public static void Swap(DLL<T> theleft, DLL<T> theright)//两个对象之间交换 静态更好
         {
                 //当左右连在一起
             if (theright.left == theleft)
@@ -78,7 +90,7 @@ namespace Csharp
                 if (theright.right != null)
                 { theright.right.left = theleft; } /*else   {  }*/
                 //备份
-                DLL newright = theright, newleft = theleft;
+                DLL<T> newright = theright, newleft = theleft;
                 //修改者
                 //
                 theleft.left = theright;
@@ -123,7 +135,7 @@ namespace Csharp
                 //else { }
 
                 //修改左者
-                DLL backup_left = theleft;  //备份
+                DLL<T> backup_left = theleft;  //备份
                 theleft.left = theright.left;
                 if (theright.right != null)
                 { theleft.right = theright.right; }
@@ -139,10 +151,22 @@ namespace Csharp
             }
          
         }
-        //想写个ChangeTo的方法( 属于对象 但是多余,还是算了)
+
         #endregion
 
-        //[选] FindBy()：根据节点值查找到某个节点  //没懂是啥意思
+
+
+        //[选] FindBy()：根据节点值查找到某个节点 (没写)
+
+
+
+
+
+
+
+
+
+
 
 
 

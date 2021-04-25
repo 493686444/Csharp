@@ -406,13 +406,26 @@ namespace Csharp
 
             #region 进阶
 
-            //用泛型改造二分查找、堆栈和双向链表
-            //用泛型改造“取数组中最大值”（提示：IComparable）
-            //用代码演示泛型接口的协变 / 逆变
+            #region in&out
+
+            //Func<Content, Content> daddad=null;
+            //Func<Problem, Content> sondad=null;
+            //sondad = daddad;//in 父给子
+            //Func<Content, Problem> dadson=null;
+            //daddad = dadson;//out 子给父
+
+            #endregion
+         
 
             #endregion
 
-            
+
+
+
+
+
+
+
         }
     }
 }
