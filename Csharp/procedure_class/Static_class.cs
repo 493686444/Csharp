@@ -34,13 +34,13 @@ namespace Csharp
         #endregion
 
         #region 找最值,最大或者最小
-        static public double GetMax(double[] scores)
+        public static T GetMax<T>(T[] scores) where T:IComparable
         {
-            double max = scores[0];
+            T max = scores[0];
             //最高分
             for (int i = 0; i < scores.Length; i++)
             {
-                if (max > scores[i])
+                if (max.CompareTo(scores[i]) > 0)
                 { }
                 else
                 { max = scores[i]; }
@@ -94,7 +94,7 @@ namespace Csharp
                         {
                             Console.WriteLine(i + "质数");
                             k = k + 1;
-                             numbers [k] = i;
+                            numbers[k] = i;
                         }
                     }
                 }
@@ -225,7 +225,7 @@ namespace Csharp
 
         //用泛型改造二分查找、堆栈和双向链表
         #region 二分查找
-        public static int BinarySeek(int[] numbers, int target)
+        public static int BinarySeek<T>(T[] numbers, T target) where T : IComparable
         {
             int left = 0, right = numbers.Length - 1, middle;
             while (true)
@@ -235,15 +235,16 @@ namespace Csharp
                 { Console.WriteLine("没有"); return -1; }
                 else
                 {
-                    if (numbers[middle] == target)
+                    if (numbers[middle].CompareTo(target) == 0)
                     {
                         Console.WriteLine(middle + 1);
                         return middle + 1;
                     }
-                    else if (numbers[middle] > target)
+                    else if (numbers[middle].CompareTo(target) > 0)
                     { right = middle; }
                     else//(numbers[middle] < target)
                     { left = middle; }
+
                 }
             }
         }
@@ -251,8 +252,10 @@ namespace Csharp
 
         #region 两个类型的传递
         public static int Transmit(int i)
-        {  i = i + 1;
-            return i;  }
+        {
+            i = i + 1;
+            return i;
+        }
 
         public static ThePublic Transmit(ThePublic hjb)
         {
@@ -286,8 +289,8 @@ namespace Csharp
             while (true)
             {
                 if (container.IndexOf(target) != -1)
-                { container = container.Remove(container.IndexOf(target), 1)  ;  sum = sum + 1;   }
-                else 
+                { container = container.Remove(container.IndexOf(target), 1); sum = sum + 1; }
+                else
                 { return sum; }
             }
         }
@@ -304,13 +307,13 @@ namespace Csharp
         #region mimicjoin
         public static string mimicJoin(string parter, params string[] adder)
         {
-            string temp=null;
+            string temp = null;
             for (int i = 0; i < adder.Length; i++)
             {
-                if (i==0)
+                if (i == 0)
                 { temp = adder[0]; }
                 else
-                { temp = temp+parter + adder[i]; }
+                { temp = temp + parter + adder[i]; }
             }
             return temp;
         }
