@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Csharp
 {
-    abstract class Content//抽象类
+    public abstract class Content//抽象类
     {
         #region 构造函数
         public Content(string kind)

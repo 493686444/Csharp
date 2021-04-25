@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Csharp
 {
-    class Article
+    public class Article
         : Content, IAgreeOrNot
     {
         #region 构造函数
@@ -22,7 +22,11 @@ namespace Csharp
             set { _keyword[index] = value; }
         }
        
-        public string comment;
+        public List<Comment> Comments;
+        public List<Keyword> Keyword;
+
+        public Appraise Appraise;
+
         #endregion
 
 
