@@ -416,8 +416,25 @@ namespace Csharp
 
             #endregion
 
+            #region 打水（ProvideWater）
+            //1.方法
+            Person hjb = new Person();
+            ProvideWater dsone = procedure.NeedWater;
+            Console.WriteLine(dsone(hjb));
+            //2.匿名法
+            ProvideWater dstwo = delegate (Person person) { return 2; };
+            Console.WriteLine(dstwo(hjb));
+            //3.Lambda
+            ProvideWater dsthree = (person) => { return 3; };
+            Console.WriteLine(dsthree(hjb));
 
-         
+            //声明一个方法GetWater()，该方法接受ProvideWater作为参数，并能将ProvideWater的返回值输出
+            Console.WriteLine(
+            hjb.GetWater(dsthree));
+
+            #endregion
+
+
 
             #endregion
 

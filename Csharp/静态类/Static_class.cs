@@ -6,6 +6,14 @@ namespace Csharp
 {
     public static class procedure   //procedure开头没大写是历史遗留问题,不敢乱改
     {
+
+        #region needwater
+       
+        public static int NeedWater(Person person) 
+        {  return 1; }
+
+        #endregion
+
         #region  循环输出名字
         static public void Findpeople(string[] names)
         {
@@ -63,7 +71,6 @@ namespace Csharp
             return min;
         }
         #endregion
-
 
         /// <summary>
         /// 找 质数 合数
