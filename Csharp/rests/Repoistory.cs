@@ -7,7 +7,7 @@ namespace Csharp
     /// <summary>
     /// 仓库(储藏室)
     /// </summary>
-    class Repoistory
+     class Repoistory   //这个对象来和数据库进行交互
     {
         //1.一个int类型的常量version
         //2.一个静态只读的字符串connection，以后可用于连接数据库

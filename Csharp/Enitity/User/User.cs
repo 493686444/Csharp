@@ -8,11 +8,11 @@ using System.Text;
 
 namespace Csharp
 {
-    sealed class User  //不被继承
+    public class User  //不被继承
        : Entity<int>, ISendMessage, IChat
     {
         #region 构造函数
-        public User(string name, string password, string authcore)
+        public User(string name, string password)
         {
             this.Name = name;
             Password = password;//2.每一个User对象一定有Name和Password赋值
@@ -21,11 +21,11 @@ namespace Csharp
 
         #region 数据
 
-        public TokenManager Tokens; //权限
-
-        //公有(假私有)
+        public TokenManager Tokens;
+        public string Authcore { get; set; } 
+        public User Invitedby;
         private string _name;
-        public string Name //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
+                    public string Name //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
         { 
             get { return _name; }
             set
@@ -41,10 +41,8 @@ namespace Csharp
                 } 
             }
         }
-        
-
         private string _password;
-        public string Password 
+                    public string Password 
         {
             set
             {
@@ -60,12 +58,8 @@ namespace Csharp
             }
             private get { return _password; }
         }
-        //1.user.Password在类的外部只能改不能读
 
 
-        public string Authcore { get; set; }
-
-        public string Invitedby;
 
         #endregion
 

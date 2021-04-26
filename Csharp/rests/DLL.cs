@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Csharp
+namespace Csharp//双向链表(Doubly Linked List)
 {
-    //双向链表(Doubly Linked List)
+    //让之前的双向链表，能够：被foreach迭代 
+    //1.调用扩展方法Max()：能够返回之前双向链表中存贮着最大值的节点
     public class DLL<T>:IEnumerable<DLL<T>>
     {
 
@@ -106,7 +107,6 @@ namespace Csharp
                 //else
                 /* { */
                 theright.left = newleft.left; /*}*/
-
 
                 ////思路2
                 //DLL newright = theright, newleft = theleft;

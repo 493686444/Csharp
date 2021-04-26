@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Csharp
-{
+{  
     public class Article
         : Content, IAgreeOrNot
     {
@@ -11,6 +11,7 @@ namespace Csharp
         public Article(string kind)
         : base(kind)
         {
+
         }
         #endregion
 
@@ -22,10 +23,10 @@ namespace Csharp
             set { _keyword[index] = value; }
         }
        
-        public List<Comment> Comments;
-        public List<Keyword> Keyword;
+        public List<Comment> Comments;//评论
+        public List<Keyword> Keyword;//关键字
 
-        public Appraise Appraise;
+        public IList<Appraise<Article>> Appraise;
 
         #endregion
 
@@ -33,21 +34,9 @@ namespace Csharp
         #region 实现---发布
         public override void Publish()
         {
-
+            _publishTime = DateTime.Now;
         }
         #endregion
-
-        #region 实现---Agree&Disagree
-        public override void Agree()
-        {
-
-        }
-        public override void Disagree()
-        {
-
-        }
-        #endregion
-
 
         public void Change()
         {

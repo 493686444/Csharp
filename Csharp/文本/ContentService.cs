@@ -11,7 +11,10 @@ namespace Csharp
 
         public Content Option;
 
-        public void Publish(Contenttype type) //参数枚举更好
+
+
+        //感觉白写
+        public void Publish(Contenttype type)
         {
             type = Contenttype.Article;//这行 根据用户的输入决定
             switch (type)

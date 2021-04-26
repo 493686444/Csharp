@@ -41,37 +41,14 @@ namespace Csharp
 
         public Repoistory repoistory;
         public int Rewardtype;
-        public int Answer;
+        public User Answer;
         public int Summary;
 
         #endregion
 
 
 
-        #region 功能---发布(Publish)
-        public bool Publish(string readtitle, string readbody,
-                          string readauth,
-                         int readreward, string[] keyword)
-        {
-            Reward = readreward;
-            if (_reward == readreward)
-            {
-                if (readbody is null)
-                { return false; }
-                else
-                {
-                    Title = readtitle;
-                    Body = readbody;
-                    Author = readauth;
-                    for (int i = 0; i < _keyword.Length; i++)
-                    { _keyword[i] = keyword[i]; }
-                    return true;
-                }
-            }
-            else
-            { return false; }
-        }
-        #endregion
+
         //这两个需要整合一下,不过暂时先搁置
         //没设置参数,因为在实现
         #region 实现---Publish
@@ -86,14 +63,14 @@ namespace Csharp
 
 
         #region 功能---删除
-        public void Delete(int Id)
+        public void Delete()
         {
-
+                
         }
         #endregion
 
         #region 功能---获取1条求助
-        public void Load(int Id)
+        public void Load()
         {
 
         }
@@ -107,16 +84,8 @@ namespace Csharp
         }
         #endregion
 
-        #region 实现---Agree&Disagree
-        public override void Agree()
-        {
 
-        }
-        public override void Disagree()
-        {
 
-        }
-        #endregion
 
     }
 }

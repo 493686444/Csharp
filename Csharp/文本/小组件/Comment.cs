@@ -9,7 +9,6 @@ namespace Csharp
 
         #region 数据
         public Article Article;
-        public Appraise Appraise;
 
         #endregion
 

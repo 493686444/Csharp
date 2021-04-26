@@ -4,8 +4,6 @@ using System.Text;
 
 namespace Csharp
 {
-
-    //点赞或者踩
     interface IAgreeOrNot
     {
         public void Change();

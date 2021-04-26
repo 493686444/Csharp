@@ -15,25 +15,17 @@ namespace Csharp
         }
         #endregion
 
-        public string comment;
+        public Comment comment;
+        public IList<Appraise<Suggest>> Appraise;
 
 
         #region 实现---Publish
-         public override void Publish()
-            {
-
-            }
-        #endregion
-   
-        #region 实现---Agree&Disagree
-        public override void Agree()
-        {
-
-        }
-        public override void Disagree()
+        public override void Publish()
         {
 
         }
         #endregion
+
     }
 }
+
