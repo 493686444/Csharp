@@ -9,15 +9,15 @@ namespace Csharp
 
         #region 构造函数
         public Content(string kind)
-        { _kind = kind ; _createtime = DateTime.Now; } 
+        { _kind = kind; _createtime = DateTime.Now; }
         #endregion
 
         #region 数据
-        protected string _kind; 
+        protected string _kind;
         public string Body;
-        public User Author; 
+        public User Author;
         private string _title;
-                    public string Title
+        public string Title
         {
             set
             {
@@ -29,9 +29,9 @@ namespace Csharp
             get { return _title; }
         }
         private DateTime _createtime;
-                    public DateTime CreateTime { get { return _createtime; } }
+        public DateTime CreateTime { get { return _createtime; } }
         protected DateTime _publishTime;
-                    public DateTime Publishtime { get { return _publishTime; } }
+        public DateTime PublishTime { get { return _publishTime; } }
 
         #endregion
 
@@ -39,7 +39,7 @@ namespace Csharp
 
         [HelpMoneyChanged(3, Message = "韩佳宝")]
         public abstract void Publish();
-     
+
         #endregion
 
     }

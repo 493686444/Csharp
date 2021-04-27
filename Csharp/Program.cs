@@ -290,13 +290,13 @@ namespace Csharp
             #endregion
 
             #region Article 对象
+            //因为反射的是父类的中的方法 ,所以要用.BaseType
+            //Article article = new Article("Article"); 
+            //article.GetType()
+            //     .BaseType.GetField("_createtime", BindingFlags.NonPublic | BindingFlags.Instance)
+            //     .SetValue(article, new DateTime(2020,2,13));
+            //Console.WriteLine(article.CreateTime);
 
-            //Article myarticle = new Article("Article");   //还是跑不出来,暂且搁置
-            //myarticle
-            //    .GetType()
-            //    .GetField("_createtime", BindingFlags.NonPublic | BindingFlags.Instance)
-            //    .SetValue(myarticle, new DateTime(2020, 2, 2));
-            //Console.WriteLine(myarticle.CreateTime);
             #endregion
 
             #endregion
@@ -432,10 +432,121 @@ namespace Csharp
 
             #endregion
 
-       
+            #region where/order/group/select
+
+            //在之前“文章 / 评价 / 评论 / 用户 / 关键字”对象模型的基础上，添加相应的数据，然后完成以下操作：
+            User
+                fg = new User("小鱼", "fgF3333"),
+                xy = new User("飞哥", "fgF3333");
+
+            Keyword cSharp = new Keyword();
+            cSharp.Name = "C#";
+            cSharp.Articles = new List<Article>();
+            Keyword pointNet = new Keyword();
+            pointNet.Name = ".NET";
+            pointNet.Articles = new List<Article>();
+
+            Comment
+                comment_one = new Comment(),
+                comment_two = new Comment(),
+                comment_three = new Comment(),
+                comment_four = new Comment();
 
 
-                            #endregion
+            Article
+                article_one = new Article("article"),
+                article_two = new Article("article"),
+                article_three = new Article("article");
+
+            article_one.ID = 1;
+            article_one.Author = fg;
+            article_one.Keywords = new List<Keyword> { cSharp };
+            article_one.Comments = new List<Comment> { comment_one, comment_four };
+            article_one.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_one, new DateTime(2020, 1, 1));
+
+            article_two.ID = 2;
+            article_two.Author = fg;
+            article_two.Keywords = new List<Keyword> { cSharp };
+            article_two.Comments = new List<Comment> { comment_two };
+            article_two.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_two, new DateTime(2021, 8, 4));
+
+            article_three.ID = 3;
+            article_three.Author = xy;
+            article_three.Keywords = new List<Keyword> { pointNet };
+            article_three.Comments = new List<Comment> { comment_three };
+            article_three.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_three, new DateTime(2017, 7, 7));
+
+
+            List<Article> articles = new List<Article>
+            {
+            article_three,
+            article_two,
+            article_one,
+            };
+
+
+            //////    找出“飞哥”发布的文章  fg  Article
+            //var fgArticle = from a in articles
+            //                where a.Author.Equals(fg)
+            //                select a;
+            //foreach (var item in fgArticle)
+            //{ Console.WriteLine("飞哥的文章 ID:"+item.ID); }
+
+            ////    找出2019年4月21日以后“小鱼”发布的文章   
+            //var xyArttcle = from a in articles
+            //                where a.Author.Name.Equals("小鱼") &&
+            //                           a.PublishTime > new DateTime(2019 / 4 / 21)
+            //                select a;
+            //foreach (var item in xyArttcle)
+            //{ Console.WriteLine("作者"+item.Author.Name + "---" + item.PublishTime +"文章ID:"+item.ID); }
+
+            ////    按发布时间升序 / 降序排列显示文章    
+            //var timeArttcle = from a in articles
+            //                  orderby a.PublishTime descending
+            //                  select a;
+            //foreach (var item in timeArttcle)
+            //{ Console.WriteLine(item.ID+":"+ item.PublishTime); }
+
+            //    统计每个用户各发布了多少篇文章    
+            //var contArttcle = from a in articles
+            //                  group a by a.Author into ga
+            //                  select new { ga.Key, count = ga.Count() };
+            //foreach (var item in contArttcle)
+            //{ Console.WriteLine(item.Key.Name + ":" + item.count); }
+
+            //// 找出包含关键字“C#”或“.NET”的文章
+            // var keyWordArttcles = from a in articles
+            //                       where a.Keywords != null && a.Keywords.Any(k => k.Name == "C#" || k.Name == ".NET ")
+            //                       select a;
+            // foreach (var item in keyWordArttcles)
+            // { Console.WriteLine("ID"+item.ID); }
+
+            ////    找出评论数量最多的文章  Article    Appraise
+            //var maxComments = from a in articles
+            //                  select new { ID = a.ID, count = a.Comments.Count() };
+            //int max = 1;
+            //foreach (var item in maxComments)
+            //{
+            //    foreach (var item_ in maxComments)
+            //    {
+            //        if (item.count > item_.count)
+            //        { max = item.ID; } /*else {  }nothing*/
+            //    }
+            //}
+            //Console.WriteLine("评论数量最多的文章 ID:" + max);
+
+        //   // 找出每个作者评论数最多的文章
+        //var maxUserComments = from a in articles
+        //                      group a by a.Author into ga
+        //                      select ga.OrderByDescending(ga => ga?.Comments.Count()).FirstOrDefault();//这一套组合方法,把组内定的东西给调用出来了
+
+        //    foreach (var item in maxUserComments)
+        //    { Console.WriteLine(item.Author.Name + "评论最多的文章 ID:" + item.ID); }
+            #endregion
+
+
+            #endregion
+
 
 
 

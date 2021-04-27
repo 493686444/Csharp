@@ -16,6 +16,7 @@ namespace Csharp
         #endregion
 
         #region 数据
+        public int ID;
         private string[] _keyword = new string[10];
         public string this[int index]
         {
@@ -24,7 +25,7 @@ namespace Csharp
         }
        
         public List<Comment> Comments;//评论
-        public List<Keyword> Keyword;//关键字
+        public List<Keyword> Keywords;//关键字
 
         public IList<Appraise<Article>> Appraise;
 

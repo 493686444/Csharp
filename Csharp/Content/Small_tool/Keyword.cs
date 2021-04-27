@@ -7,7 +7,8 @@ namespace Csharp
     public class Keyword
     {
         #region 数据
-        public List<Article> Article;
+        public string Name;
+        public List<Article> Articles;
 
         #endregion
     }
