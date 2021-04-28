@@ -486,41 +486,58 @@ namespace Csharp
 
 
             //////    找出“飞哥”发布的文章  fg  Article
+            //Console.WriteLine();
             //var fgArticle = from a in articles
             //                where a.Author.Equals(fg)
             //                select a;
             //foreach (var item in fgArticle)
-            //{ Console.WriteLine("飞哥的文章 ID:"+item.ID); }
-
+            //{ Console.WriteLine("飞哥的文章 ID:" + item.ID); }
+            //Console.WriteLine("方法↓↓↓");
+            //fgArticle = articles.Where(a => a.Author.Equals(fg));//select可有可无
+            //foreach (var item in fgArticle)
+            //{ Console.WriteLine("飞哥的文章 ID:" + item.ID); }
             ////    找出2019年4月21日以后“小鱼”发布的文章   
+            //Console.WriteLine();
             //var xyArttcle = from a in articles
             //                where a.Author.Name.Equals("小鱼") &&
             //                           a.PublishTime > new DateTime(2019 / 4 / 21)
             //                select a;
             //foreach (var item in xyArttcle)
-            //{ Console.WriteLine("作者"+item.Author.Name + "---" + item.PublishTime +"文章ID:"+item.ID); }
-
+            //{ Console.WriteLine("作者" + item.Author.Name + "---" + item.PublishTime + "文章ID:" + item.ID); }
+            //Console.WriteLine("方法↓↓↓");
+            //xyArttcle = articles.Where(a => a.Author.Name.Equals("小鱼")).Where(a => a.PublishTime > new DateTime(2019 / 4 / 21));/*.Select(a => a);*//*这个select可有可无*/
+            //foreach (var item in xyArttcle)
+            //{ Console.WriteLine("作者" + item.Author.Name + "---" + item.PublishTime + "文章ID:" + item.ID); }
             ////    按发布时间升序 / 降序排列显示文章    
             //var timeArttcle = from a in articles
             //                  orderby a.PublishTime descending
             //                  select a;
             //foreach (var item in timeArttcle)
-            //{ Console.WriteLine(item.ID+":"+ item.PublishTime); }
-
-            //    统计每个用户各发布了多少篇文章    
+            //{ Console.WriteLine(item.ID + ":" + item.PublishTime); }
+            //Console.WriteLine("方法↓↓↓");
+            //timeArttcle = articles.OrderByDescending(a => a.PublishTime);//理解方法的原理可知,这个不需要select
+            //foreach (var item in timeArttcle)
+            //{ Console.WriteLine(item.ID + ":" + item.PublishTime); }
+            ////    统计每个用户各发布了多少篇文章    
             //var contArttcle = from a in articles
             //                  group a by a.Author into ga
             //                  select new { ga.Key, count = ga.Count() };
             //foreach (var item in contArttcle)
             //{ Console.WriteLine(item.Key.Name + ":" + item.count); }
-
+            //Console.WriteLine("方法↓↓↓");
+            //contArttcle = articles.GroupBy(a => a.Author).Select(a => new { a.Key, count=a.Count() });
+            //foreach (var item in contArttcle)
+            //{ Console.WriteLine(item.Key.Name + ":" + item.count); }
             //// 找出包含关键字“C#”或“.NET”的文章
-            // var keyWordArttcles = from a in articles
-            //                       where a.Keywords != null && a.Keywords.Any(k => k.Name == "C#" || k.Name == ".NET ")
-            //                       select a;
-            // foreach (var item in keyWordArttcles)
-            // { Console.WriteLine("ID"+item.ID); }
-
+            //var keyWordArttcles = from a in articles
+            //                      where a.Keywords != null && a.Keywords.Any(k => k.Name == "C#" || k.Name == ".NET ")
+            //                      select a;
+            //foreach (var item in keyWordArttcles)
+            //{ Console.WriteLine("ID" + item.ID); }
+            //Console.WriteLine("方法↓↓↓");
+            //keyWordArttcles = articles.Where(a => a.Keywords != null && a.Keywords.Any(k => k.Name == "C#" || k.Name == ".NET "));
+            //foreach (var item in keyWordArttcles)
+            //{ Console.WriteLine("ID" + item.ID); }
             ////    找出评论数量最多的文章  Article    Appraise
             //var maxComments = from a in articles
             //                  select new { ID = a.ID, count = a.Comments.Count() };
@@ -534,14 +551,29 @@ namespace Csharp
             //    }
             //}
             //Console.WriteLine("评论数量最多的文章 ID:" + max);
+            //Console.WriteLine("方法↓↓↓");
+            //maxComments = articles.Select(a => new { ID = a.ID, count = a.Comments.Count() });
+            //foreach (var item in maxComments)
+            //{
+            //    foreach (var item_ in maxComments)
+            //    {
+            //        if (item.count > item_.count)
+            //        { max = item.ID; } /*else {  }nothing*/
+            //    }
+            //}
+            //Console.WriteLine("评论数量最多的文章 ID:" + max);
 
-        //   // 找出每个作者评论数最多的文章
-        //var maxUserComments = from a in articles
-        //                      group a by a.Author into ga
-        //                      select ga.OrderByDescending(ga => ga?.Comments.Count()).FirstOrDefault();//这一套组合方法,把组内定的东西给调用出来了
+            //// 找出每个作者评论数最多的文章
+            //var maxUserComments = from a in articles
+            //                      group a by a.Author into ga
+            //                      select ga.OrderByDescending(a => a?.Comments.Count()).FirstOrDefault();//这一套组合方法,把组内定的东西给调用出来了,原来linq的原理就是方法*/
+            //foreach (var item in maxUserComments)
+            //{ Console.WriteLine(item.Author.Name + "评论最多的文章 ID:" + item.ID); }
+            //Console.WriteLine("方法↓↓↓");
+            //maxUserComments = articles.GroupBy(a => a.Author).Select(a => a.OrderByDescending(b => b?.Comments.Count()).FirstOrDefault());
+            //foreach (var item in maxUserComments)
+            //{ Console.WriteLine(item.Author.Name + "评论最多的文章 ID:" + item.ID); }
 
-        //    foreach (var item in maxUserComments)
-        //    { Console.WriteLine(item.Author.Name + "评论最多的文章 ID:" + item.ID); }
             #endregion
 
 
