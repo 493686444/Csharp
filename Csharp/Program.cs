@@ -433,11 +433,9 @@ namespace Csharp
             #endregion
 
             #region where/order/group/select
-
-            //在之前“文章 / 评价 / 评论 / 用户 / 关键字”对象模型的基础上，添加相应的数据，然后完成以下操作：
             User
-                fg = new User("小鱼", "fgF3333"),
-                xy = new User("飞哥", "fgF3333");
+                fg = new User("飞哥", "fgF3333"),
+                xy = new User("小鱼", "fgF3333");
 
             Keyword cSharp = new Keyword();
             cSharp.Name = "C#";
@@ -574,6 +572,25 @@ namespace Csharp
             //foreach (var item in maxUserComments)
             //{ Console.WriteLine(item.Author.Name + "评论最多的文章 ID:" + item.ID); }
 
+            ////找出每个作者最近发布的一篇文章
+            //var lastarttcle = articles.GroupBy(a => a.Author).Select(ga => ga.OrderByDescending(a => a?.PublishTime).FirstOrDefault());
+            //foreach (var item in lastarttcle)
+            //{ Console.WriteLine(item.Author.Name + "最近发布的文章 ID:" + item.ID+"     时间为:"+item.PublishTime); }
+
+            ////找出每一篇求助的悬赏都大于5个帮帮币的求助作者
+            //Problem problem_one = new Problem("Problem");
+            //problem_one.Reward = 10;
+            //problem_one.Author = fg;
+            //Problem problem_two = new Problem("Problem");
+            //problem_two.Reward = 4;    
+            //problem_two.Author = fg;
+            //Problem problem_three = new Problem("Problem");
+            //problem_three.Reward = 5;
+            //problem_three.Author = xy;
+            //List<Problem> problems = new List<Problem>() { problem_one,problem_two,problem_three}; 
+            //var authors = problems.Where(a => a.Reward.CompareTo(5) > 0).Select(a => a.Author);
+            //foreach (var item in authors)
+            //{ Console.WriteLine("作者;"+item.Name);  }
             #endregion
 
 
