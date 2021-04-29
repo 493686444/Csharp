@@ -8,35 +8,33 @@ namespace Csharp
 
     class ContentService
     {
-
         public Content Option;
-
-
-
-        //感觉白写
-        public void Publish(Contenttype type)
+        public void ToDataBase()
         {
-            type = Contenttype.Article;//这行 根据用户的输入决定
-            switch (type)
-            {
-                case Contenttype.Problem:
-                    Content problem = new Problem("Problem");
-                    problem.Publish();
-                    break;
-                case Contenttype.Article:
-                    Content article = new Problem("Article");
-                    article.Publish();
-                    break;
-                case Contenttype.Suggest:
-                    Content suggest = new Problem("Suggest");
-                    suggest.Publish();
-                    break;
-                default:
-                    break;
-            }
-
-
 
         }
+
+        public void Publish()
+        {
+            try
+            {
+                Option.Publish();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+              
+            }
+            catch (ArgumentNullException)
+            {
+                throw new ArgumentNullException();
+            }
+            finally
+            {
+                Console.WriteLine($"{DateTime.Now}，请求发布内容ID={Option.id}");
+            }
+        }
+
+        ///问:实例一个文体就可以publish,为哈还要新建一个ContentService?
+        /// 答: 因为这样还可以附带处理更多的数据,例如把这个文体存到数据库,或者第几次publish啥的
     }
 }

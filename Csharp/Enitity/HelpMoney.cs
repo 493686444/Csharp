@@ -6,7 +6,7 @@ namespace Csharp
 {
 
     class HelpMoney
-        :Entity<int>
+        :Entity
     {
         //1.数据
         //公有

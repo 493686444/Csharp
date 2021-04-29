@@ -9,14 +9,14 @@ using System.Text;
 namespace Csharp
 {
     public class User  //不被继承
-       : Entity<int>, ISendMessage, IChat
+       : Entity, ISendMessage, IChat
     {
         #region 构造函数
-        public User(string name, string password)
-        {
-            this.Name = name;
-            Password = password;//2.每一个User对象一定有Name和Password赋值
-        }
+        //public User(string name, string password)
+        //{
+        //    this.Name = name;
+        //    Password = password;   //为了便于测试
+        //}
         #endregion
 
         #region 数据

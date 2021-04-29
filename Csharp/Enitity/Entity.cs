@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Csharp
 {
-    public class Entity<T> 
+    public class Entity 
     {
 
         //改造Entity类，让其Id可以为任意类型
-        public T id;
+        public int id=new Random().Next();
 
     }
 }

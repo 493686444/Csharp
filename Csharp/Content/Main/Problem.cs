@@ -29,19 +29,16 @@ namespace Csharp
         public int Reward
         {
             set
-            {
-                if (value < 0)
-                    { throw new ArgumentOutOfRangeException("参数越界"); }//1.修改之前的属性验证：problem.Reward为负数时直接抛出“参数越界”异常
-                else
-                    { _reward = value; }
+            {  
+                _reward = value;
             }
             get { return _reward; }
         }
 
-        public Repoistory repoistory;
-        public int Rewardtype;
-        public User Answer;
-        public int Summary;
+        //public Repoistory repoistory;
+        //public int Rewardtype;
+        //public User Answer;
+        //public int Summary;
 
         #endregion
 
@@ -53,7 +50,19 @@ namespace Csharp
         #region 实现---Publish
         public override void Publish()
         {
-
+            _publishTime = DateTime.Now;
+            if (Author is null)
+            {
+                Console.WriteLine("作者参数不能为空");
+                throw new ArgumentNullException();//2.内容（Content）发布（Publish）的时候检查其作者（Author）是否为空，如果为空抛出“参数为空”异常
+            }
+            else { }
+            if (Reward < 0)
+            {
+                Console.WriteLine($"求助的Reward为负数{Reward}");
+                throw new ArgumentOutOfRangeException();
+            }
+            else { }//1.修改之前的属性验证：problem.Reward为负数时直接抛出“参数越界”异常
         }
         #endregion
 
@@ -64,7 +73,7 @@ namespace Csharp
         #region 功能---删除
         public void Delete()
         {
-                
+
         }
         #endregion
 
