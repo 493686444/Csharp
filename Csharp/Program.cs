@@ -432,55 +432,55 @@ namespace Csharp
 
             #endregion
 
-            #region where/order/group/select
-            User
-                fg = new User("飞哥", "fgF3333"),
-                xy = new User("小鱼", "fgF3333");
+            #region Linq: where/order/group/select
+            //User
+            //    fg = new User("飞哥", "fgF3333"),
+            //    xy = new User("小鱼", "fgF3333");
 
-            Keyword cSharp = new Keyword();
-            cSharp.Name = "C#";
-            cSharp.Articles = new List<Article>();
-            Keyword pointNet = new Keyword();
-            pointNet.Name = ".NET";
-            pointNet.Articles = new List<Article>();
+            //Keyword cSharp = new Keyword();
+            //cSharp.Name = "C#";
+            //cSharp.Articles = new List<Article>();
+            //Keyword pointNet = new Keyword();
+            //pointNet.Name = ".NET";
+            //pointNet.Articles = new List<Article>();
 
-            Comment
-                comment_one = new Comment(),
-                comment_two = new Comment(),
-                comment_three = new Comment(),
-                comment_four = new Comment();
-
-
-            Article
-                article_one = new Article("article"),
-                article_two = new Article("article"),
-                article_three = new Article("article");
-
-            article_one.ID = 1;
-            article_one.Author = fg;
-            article_one.Keywords = new List<Keyword> { cSharp };
-            article_one.Comments = new List<Comment> { comment_one, comment_four };
-            article_one.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_one, new DateTime(2020, 1, 1));
-
-            article_two.ID = 2;
-            article_two.Author = fg;
-            article_two.Keywords = new List<Keyword> { cSharp };
-            article_two.Comments = new List<Comment> { comment_two };
-            article_two.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_two, new DateTime(2021, 8, 4));
-
-            article_three.ID = 3;
-            article_three.Author = xy;
-            article_three.Keywords = new List<Keyword> { pointNet };
-            article_three.Comments = new List<Comment> { comment_three };
-            article_three.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_three, new DateTime(2017, 7, 7));
+            //Comment
+            //    comment_one = new Comment(),
+            //    comment_two = new Comment(),
+            //    comment_three = new Comment(),
+            //    comment_four = new Comment();
 
 
-            List<Article> articles = new List<Article>
-            {
-            article_three,
-            article_two,
-            article_one,
-            };
+            //Article
+            //    article_one = new Article("article"),
+            //    article_two = new Article("article"),
+            //    article_three = new Article("article");
+
+            //article_one.ID = 1;
+            //article_one.Author = fg;
+            //article_one.Keywords = new List<Keyword> { cSharp };
+            //article_one.Comments = new List<Comment> { comment_one, comment_four };
+            //article_one.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_one, new DateTime(2020, 1, 1));
+
+            //article_two.ID = 2;
+            //article_two.Author = fg;
+            //article_two.Keywords = new List<Keyword> { cSharp };
+            //article_two.Comments = new List<Comment> { comment_two };
+            //article_two.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_two, new DateTime(2021, 8, 4));
+
+            //article_three.ID = 3;
+            //article_three.Author = xy;
+            //article_three.Keywords = new List<Keyword> { pointNet };
+            //article_three.Comments = new List<Comment> { comment_three };
+            //article_three.GetType().BaseType.GetField("_publishTime", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(article_three, new DateTime(2017, 7, 7));
+
+
+            //List<Article> articles = new List<Article>
+            //{
+            //article_three,
+            //article_two,
+            //article_one,
+            //};
 
 
             //////    找出“飞哥”发布的文章  fg  Article
@@ -593,7 +593,11 @@ namespace Csharp
             //{ Console.WriteLine("作者;"+item.Name);  }
             #endregion
 
+            #region throw Exception
 
+
+
+            #endregion
             #endregion
 
 
