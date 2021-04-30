@@ -22,51 +22,88 @@ namespace Csharp
         #region 数据
 
         public TokenManager Tokens;
-        public string Authcore { get; set; } 
+        public string Authcore { get; set; }
         public User Invitedby;
         private string _name;
-                    public string Name //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
-        { 
+        public string Name //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
+        {
             get { return _name; }
             set
             {
-                if (value.Contains("admin") || value.Contains("17bang")|| value.Contains("管理员"))
+                if (value.Contains("admin") || value.Contains("17bang") || value.Contains("管理员"))
                 { Console.WriteLine("不能含有admin、17bang、管理员等敏感词"); }
                 else
                 {
                     if (value == "admin")//管理员的后台账户
-                    {  _name = "系统管理员";  }//2.如果user.Name为“admin”，输入时修改为“系统管理员”
+                    { _name = "系统管理员"; }//2.如果user.Name为“admin”，输入时修改为“系统管理员”
                     else
                     { _name = value; }
-                } 
+                }
             }
         }
         private string _password;
-                    public string Password 
+
+        public string Password
         {
             set
             {
-                if (value.ToLower() == value)
-                { Console.WriteLine("密码必须大小写都有"); }
-                else
+                if (_inspector(value))
                 {
-                    if (value.Length < 6)
-                    { Console.WriteLine("不得少于6个"); }
-                    else
-                    { _password = value; }//必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成(搁置)   //|| "!" || "@" || "#" || "$" || "%" || "^" || "&" || "*" || "(" || ")" || "_" || "+"
+                    _password = value;
                 }
+                //else  {  }  //必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成(搁置)   //|| "!" || "@" || "#" || "$" || "%" || "^" || "&" || "*" || "(" || ")" || "_" || "+"
             }
             private get { return _password; }
         }
-
+        private string[] _inspector_conditions;
 
 
         #endregion
 
         #region 函数方法(功能)
-
+        #region 检验密码
+        public bool _inspector(string value)
+        {
+            _inspector_conditions = new string[] { "~", "!" ,"@","#","$","%","^","&","*","(",")","+","1","2","3","4","5","6","7","8","9","0"};
+            bool yesornot=false;
+            for (int i = 0; i < _inspector_conditions.Length; i++)
+            {
+                if (value.Contains(_inspector_conditions[i]))
+                {
+                    yesornot = true;
+                    break;
+                }
+            }
+            if (value.ToLower() == value)
+            {
+                Console.WriteLine("密码必须大小写都有");
+                return false;
+            }
+            else
+            {
+                if (value.Length < 6)
+                {
+                    Console.WriteLine("不得少于6个");
+                    return false;
+                }
+                else
+                {
+                    if (yesornot)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("密码必须含有数字和特殊符号（~!@#$%^&*()_+）");
+                        return false;
+                    }
+                }
+            }
+            
+        }
+        #endregion
         #region 功能---注册
-        public bool Register(string readpasswordcopy,User readuser
+        public bool Register(string readpasswordcopy, User readuser
            )
         {
             if (readuser.Password is null || readuser.Name is null)
@@ -94,7 +131,7 @@ namespace Csharp
         static private bool Login_test(string sample, string tester, string _display_type)
         {
             if (sample is null)
-            { Console.WriteLine($"The {_display_type} can't be empty");  return false;  }
+            { Console.WriteLine($"The {_display_type} can't be empty"); return false; }
             else if (sample != tester)
             { Console.WriteLine($"The {_display_type} is inexistenced"); return false; }
             else
@@ -140,7 +177,7 @@ namespace Csharp
             }
         }
         #endregion
-        
+
         #region 实现
 
         void ISendMessage.Send()

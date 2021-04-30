@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
+using System.Threading;
 
 namespace Csharp
 {
@@ -594,26 +595,32 @@ namespace Csharp
             #endregion
 
             #region throw Exception
-            //在Main()函数调用ContentService时，捕获一切异常，并记录异常的消息和堆栈信息
-            Problem problem = new Problem("Problem");
-            User hjb = new User();
+            ////在Main()函数调用ContentService时，捕获一切异常，并记录异常的消息和堆栈信息
+            //Problem problem = new Problem("Problem");
+            //User hjb = new User();
 
-            problem.Reward = -1;
-            problem.Author = hjb;
+            //problem.Reward = -1;
+            //problem.Author = hjb;
 
-            ContentService sever = new ContentService();
-            sever.Option =problem;
+            //ContentService sever = new ContentService();
+            //sever.Option =problem;
 
-            try
-            {
-                sever.Publish();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("记录"+e.ToString());
-            }
+            //try
+            //{
+            //    sever.Publish();
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("记录"+e.ToString());
+            //}
 
             #endregion
+
+            #region thread and task
+      
+
+            #endregion
+
             #endregion
 
 
