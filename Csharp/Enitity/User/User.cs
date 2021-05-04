@@ -116,15 +116,23 @@ namespace Csharp
         public void Login()
         {
             RepositoryServer repositoryServer = new RepositoryServer();
-            if (_password == repositoryServer.Get(this))
+            string dbPassword = repositoryServer.Get(this);
+            if (dbPassword is null)
             {
-                Console.WriteLine("密码正确");
+                Console.WriteLine("用户名不存在");
+                return;
             }
             else
             {
-                Console.WriteLine("密码错误");
+                if (_password == dbPassword)
+                {
+                    Console.WriteLine("密码正确");
+                }
+                else
+                {
+                    Console.WriteLine("密码错误");
+                }
             }
-
         }
         #endregion
 

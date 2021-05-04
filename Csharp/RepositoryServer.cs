@@ -37,7 +37,6 @@ namespace Csharp
                 cmd.ExecuteNonQuery();
             }
         }
-
         #endregion
 
         #region 功能---取
