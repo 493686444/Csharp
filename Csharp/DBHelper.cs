@@ -15,8 +15,7 @@ namespace Csharp
             set { _cmd = value; } 
             get { _cmd.Connection = Conn; return _cmd; } 
         }
-        //封装三个部分
-        //Connection
+    
         public void NonQueryProcess(string text) 
         {
             using (Conn)
@@ -25,7 +24,6 @@ namespace Csharp
                 this.NonQueryCmdProcess(text);
             }
         }
-        //Command
         public void NonQueryCmdProcess(string text) 
         {
             Cmd.CommandText = text;

@@ -25,14 +25,14 @@ namespace Csharp
         //3.批量标记Message为已读
 
         #region 注册和登录
-        public void Save(User user)//Output---注册--存入数据库
+        public void Save(User user)
         {
             using (connection = new SqlConnection(connectionString))
             {
                 string cmd = $"INSERT INTO[dbo].[User]([id], [username], [password], [inviredby], [profileid], [bmoney]) " +
                     $"VALUES (5, N'{user.Name}', N'{user.Password}', {user.Invitedby}, 5, 1000)";
                 DBHelper helper = new DBHelper();
-                helper.NonQueryProcess(cmd);                 //这个@name为啥没有{ }          //作者id不能自动生成identity,这是历史遗留问题
+                helper.NonQueryProcess(cmd);             //作者id不能自动生成identity,这是历史遗留问题
 
             }
         }

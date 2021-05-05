@@ -54,7 +54,7 @@ namespace Csharp
         #region 检验密码
         public bool _inspector(string value)
         {
-            _inspector_conditions = new string[] { "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+            string[] _inspector_conditions = new string[] { "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
             bool yesornot = false;
             for (int i = 0; i < _inspector_conditions.Length; i++)
             {
@@ -93,26 +93,17 @@ namespace Csharp
         }
         #endregion
 
-
-
-        private string[] _inspector_conditions;
-
         #endregion
 
-        #region 函数方法(功能)
 
-        ///数据持久化
-        //1.注册/登录
-        #region 功能---注册
+
+        #region 注册和登录
         public void Register()
         {
             RepositoryServer repositoryServer = new RepositoryServer();
             repositoryServer.Save(this);
             Console.WriteLine("注册成功");
         }
-        #endregion
-
-        #region 功能---登录
         public void Login()
         {
             RepositoryServer repositoryServer = new RepositoryServer();
@@ -150,7 +141,6 @@ namespace Csharp
 
 
 
-        #endregion 函数结束
     }
 }
 
