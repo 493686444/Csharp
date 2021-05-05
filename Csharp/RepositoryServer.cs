@@ -24,33 +24,39 @@ namespace Csharp
         //c.列表页呈现（包括：过滤/分页）
         //3.批量标记Message为已读
 
-        #region 功能---存
+        #region 注册和登录
         public void Save(User user)//Output---注册--存入数据库
         {
             using (connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                cmd = new SqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandText =
-                    $"INSERT INTO [dbo].[User] ([id], [username], [password], [inviredby], [profileid], [bmoney]) VALUES (5, N'{user.Name}', N'{user.Password}', {user.Invitedby}, 5, 1000)"; //作者id不能自动生成identity,这是历史遗留问题
-                cmd.ExecuteNonQuery();
+                string cmd = $"INSERT INTO[dbo].[User]([id], [username], [password], [inviredby], [profileid], [bmoney]) " +
+                    $"VALUES (5, N'{user.Name}', N'{user.Password}', {user.Invitedby}, 5, 1000)";
+                DBHelper helper = new DBHelper();
+                helper.NonQueryProcess(cmd);                 //这个@name为啥没有{ }          //作者id不能自动生成identity,这是历史遗留问题
+
             }
         }
+        public string GetPassWord(User user)//Input---登录--取到密码
+        {
+            string result;
+            DBHelper helper = new DBHelper();
+            using (helper.Conn)
+            {
+                helper.Cmd.CommandText = $"SELECT [password] FROM [User]WHERE Name={user.Name}";
+                object reader = helper.Cmd.ExecuteScalar();
+                result = (string)reader;
+            }
+            return result;
+        }
+
         #endregion
 
-        #region 功能---取
-        public string Get(User user)//Input---登录--取到密码
+        #region 
+        public void Save(Content content)//Output---发布/更新--存入数据库
         {
-            using (connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                cmd = new SqlCommand();
-                cmd.Connection = connection;
-                cmd.CommandText = $"SELECT [password] FROM [User]WHERE Name={user.Name}";
-                string reader = (string)cmd.ExecuteScalar();
-                return reader;
-            }
+            DBHelper helper = new DBHelper();
+            helper.NonQueryProcess("");
+
         }
         #endregion
 

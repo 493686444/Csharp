@@ -116,7 +116,7 @@ namespace Csharp
         public void Login()
         {
             RepositoryServer repositoryServer = new RepositoryServer();
-            string dbPassword = repositoryServer.Get(this);
+            string dbPassword = repositoryServer.GetPassWord(this);
             if (dbPassword is null)
             {
                 Console.WriteLine("用户名不存在");
