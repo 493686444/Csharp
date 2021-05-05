@@ -9,7 +9,7 @@ namespace Csharp
     class DBHelper
     {
         public  SqlConnection Conn = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog = 17bang;Integrated Security = True;");
-        public DbCommand _cmd = new SqlCommand();
+        private DbCommand _cmd = new SqlCommand();
         public DbCommand Cmd
         {
             set { _cmd = value; } 
