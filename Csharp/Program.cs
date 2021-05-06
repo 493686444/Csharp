@@ -617,13 +617,36 @@ namespace Csharp
             #endregion
 
             #region thread and task
-      
+
 
             #endregion
 
             #endregion
 
+            #region ADO.NET
+            ////注册
+            //User user = new User();
+            //user.Name = "HJB";
+            //user.Password = "123456@asdF";
+            //user.Invitedby = 1;
+            //user.Register();
 
+            ////登录
+            //User user = new User();
+            //user.Name = "HJB";
+            //user.Password = "@123456aA";
+            //user.Login();
+            
+            ////单页
+            //int id = 1;
+            //List<Content> contents = RepositoryServer.GetPage(id, "problem");
+            //foreach (var item in contents)
+            //{
+            //    Console.WriteLine(item.Body);
+            //}
+
+
+            #endregion
 
 
 

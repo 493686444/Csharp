@@ -7,11 +7,7 @@ namespace Csharp
     public class Summary
         : Content
     {
-        public Summary(string kind)
-            :base(kind)
-        {
-                
-        }
+   
 
 
 

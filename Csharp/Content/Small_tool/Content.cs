@@ -8,12 +8,12 @@ namespace Csharp
     {
 
         #region 构造函数
-        public Content(string kind)
-        { _kind = kind; _createtime = DateTime.Now; }
+        public Content()
+        {  _createtime = DateTime.Now; }
         #endregion
 
         #region 数据
-        public bool Published;
+        public bool Published=false;
 
         protected string _kind;
         public string Body;

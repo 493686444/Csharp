@@ -3,18 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Csharp
-{  
+{
     public class Article
         : Content, IAgreeOrNot
     {
-        #region 构造函数
-        public Article(string kind)
-        : base(kind)
-        {
-
-        }
-        #endregion
-
+   
         #region 数据
         public int ID;
         private string[] _keyword = new string[10];
@@ -23,7 +16,7 @@ namespace Csharp
             get { return _keyword[index]; }
             set { _keyword[index] = value; }
         }
-       
+
         public List<Comment> Comments;//评论
         public List<Keyword> Keywords;//关键字
 
@@ -50,7 +43,6 @@ namespace Csharp
         {
         }
 
-
-
     }
 }
+

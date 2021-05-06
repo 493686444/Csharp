@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Csharp
 {
-    class DBHelper
+    public class DBHelper
     {
         public  SqlConnection Conn = new SqlConnection(@"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog = 17bang;Integrated Security = True;");
         private DbCommand _cmd = new SqlCommand();
@@ -24,7 +24,7 @@ namespace Csharp
             using (Conn)
             {
                 Conn.Open();
-                this.NonQueryCmdProcess(text);
+                NonQueryCmdProcess(text);
             }
         }
         public void NonQueryCmdProcess(string text)
@@ -40,7 +40,7 @@ namespace Csharp
             using (Conn)
             {
                 Conn.Open();
-                sth= this.ScalarCmdProcess(text);
+                sth= ScalarCmdProcess(text);
             }
             return sth;
         }
@@ -50,7 +50,13 @@ namespace Csharp
             return Cmd.ExecuteScalar();
         }
 
-
-        //
+        //Reader
+   
+        public DbDataReader ReaderCmdProcess(string text) 
+        {
+            Cmd.CommandText = text;
+            DbDataReader reader=Cmd.ExecuteReader();
+            return reader;
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace Csharp
 
         public TokenManager Tokens;
         public string Authcore { get; set; }
-        public User Invitedby;
+        public int Invitedby;
 
         private string _name;
         public string Name 

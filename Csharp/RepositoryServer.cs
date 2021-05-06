@@ -12,9 +12,6 @@ namespace Csharp
 
         #region 数据
         public int version;
-        public string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True;";
-        public DbConnection connection;
-        public DbCommand cmd;
         #endregion
         ///数据持久化
         //1.注册/登录
@@ -27,23 +24,23 @@ namespace Csharp
         #region 注册和登录
         public void Save(User user)
         {
-            using (connection = new SqlConnection(connectionString))
-            {
-                string cmd = $"INSERT INTO[dbo].[User]([id], [username], [password], [inviredby], [profileid], [bmoney]) " +
-                    $"VALUES (5, N'{user.Name}', N'{user.Password}', {user.Invitedby}, 5, 1000)";
-                DBHelper helper = new DBHelper();
-                helper.NonQueryProcess(cmd);             //作者id不能自动生成identity,这是历史遗留问题
-            }
+
+            DBHelper helper = new DBHelper();
+            helper.NonQueryProcess($"INSERT INTO[dbo].[User]([id], [username], [password], [inviredby], [profileid], [bmoney]) " +
+                $"VALUES (5, N'{user.Name}', N'{user.Password}', {user.Invitedby}, 5, 1000)");             //作者id不能自动生成identity,这是历史遗留问题
+
         }
         public string GetPassWord(User user)//Input---登录--取到密码
         {
             DBHelper helper = new DBHelper();
-            return (string)helper.ScalarProcess($"SELECT [password] FROM [User]WHERE Name={user.Name}");
+            return (string)helper.ScalarProcess($"SELECT [password] FROM [User] WHERE [username]=N'{user.Name}'");
         }
 
         #endregion
+
+
         #region 发布修改
-        public void Save(Problem content) 
+        public void Save(Problem content)
         {
             DBHelper helper = new DBHelper();
             if (content.Published)
@@ -53,9 +50,43 @@ namespace Csharp
             else
             {
                 helper.NonQueryProcess($"insert [Problem] ([Title],[Content],Reward) values (N'{content.Title}',N'{content.Body}',{content.Reward})");
+                content.Published = true;
             }
         }
-    }   
+        public static List<Content> GetPage(int id, string sth)
+        {
+            List<Content> contents = new List<Content>();
+            DBHelper helper = new DBHelper();
+            using (helper.Conn)
+            {
+                helper.Conn.Open();
+                if (sth.ToLower() == "problem")
+                {
+                    DbDataReader reader=helper.ReaderCmdProcess($"select * from problem where id = {id};");
+                    while (reader.Read())
+                    {
+                        contents.Add(new Problem() { id = (int)reader[0], Body = (string)reader[1] });
+                    }
+                }
+                else if (sth.ToLower() == "article")
+                {
+                    DbDataReader reader = helper.ReaderCmdProcess($"select * from Article where id = {id};");
+                    while (reader.Read())
+                    {
+                        contents.Add(new Article() { id = (int)reader[0], Body = (string)reader[1] });
+                    }
+                }
+                else
+                {
+                    DbDataReader reader = helper.ReaderCmdProcess($"select * from Suggest where id = {id};");
+                    while (reader.Read())
+                    {
+                        contents.Add(new Suggest() { id = (int)reader[0], Body = (string)reader[1] });
+                    }
+                }
+            }
+            return contents;
+        }
         #endregion
 
 
