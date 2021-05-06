@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Csharp
 {
-    public abstract class Content:Entity
+    public abstract class Content : Entity
     {
 
         #region 构造函数
@@ -13,18 +13,34 @@ namespace Csharp
         #endregion
 
         #region 数据
+        public bool Published;
+
         protected string _kind;
         public string Body;
-        public User Author;
-
+        public User _author;
+        public User Author
+        {
+            set
+            {
+                if (value is null)
+                {
+                    throw new ArgumentNullException("作者名字为空");
+                }
+                else
+                {
+                    _author = value;
+                }
+            }
+            get { return _author; }
+        }
         private string _title;
         public string Title
         {
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                { 
-                    Console.WriteLine("不可以为null或空字符"); 
+                {
+                    Console.WriteLine("不可以为null或空字符");
                 }
                 else
                 { _title = value.Trim(); }

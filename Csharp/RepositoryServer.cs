@@ -33,32 +33,32 @@ namespace Csharp
                     $"VALUES (5, N'{user.Name}', N'{user.Password}', {user.Invitedby}, 5, 1000)";
                 DBHelper helper = new DBHelper();
                 helper.NonQueryProcess(cmd);             //作者id不能自动生成identity,这是历史遗留问题
-
             }
         }
         public string GetPassWord(User user)//Input---登录--取到密码
         {
-            string result;
             DBHelper helper = new DBHelper();
-            using (helper.Conn)
-            {
-                helper.Cmd.CommandText = $"SELECT [password] FROM [User]WHERE Name={user.Name}";
-                object reader = helper.Cmd.ExecuteScalar();
-                result = (string)reader;
-            }
-            return result;
+            return (string)helper.ScalarProcess($"SELECT [password] FROM [User]WHERE Name={user.Name}");
         }
 
         #endregion
-
-        #region 
-        public void Save(Content content)//Output---发布/更新--存入数据库
+        #region 发布修改
+        public void Save(Problem content) 
         {
             DBHelper helper = new DBHelper();
-            helper.NonQueryProcess("");
-
+            if (content.Published)
+            {
+                helper.NonQueryProcess($"update [Problem] set [Title]=N'{content.Title}',[Content]=N'{content.Body}',[Reward]={content.Reward}");//暂时只传这三个属性进行测试
+            }
+            else
+            {
+                helper.NonQueryProcess($"insert [Problem] ([Title],[Content],Reward) values (N'{content.Title}',N'{content.Body}',{content.Reward})");
+            }
         }
+    }   
         #endregion
+
+
 
     }
 }

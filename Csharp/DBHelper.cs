@@ -15,7 +15,10 @@ namespace Csharp
             set { _cmd = value; } 
             get { _cmd.Connection = Conn; return _cmd; } 
         }
+
     
+
+        //NonQuery
         public void NonQueryProcess(string text) 
         {
             using (Conn)
@@ -24,10 +27,27 @@ namespace Csharp
                 this.NonQueryCmdProcess(text);
             }
         }
-        public void NonQueryCmdProcess(string text) 
+        public void NonQueryCmdProcess(string text)
         {
             Cmd.CommandText = text;
             Cmd.ExecuteNonQuery();
+        }
+
+        //Scalar
+        public object ScalarProcess(string text) 
+        {
+            object sth;
+            using (Conn)
+            {
+                Conn.Open();
+                sth= this.ScalarCmdProcess(text);
+            }
+            return sth;
+        }
+        public object ScalarCmdProcess(string text) 
+        {
+            Cmd.CommandText = text;
+            return Cmd.ExecuteScalar();
         }
 
 
