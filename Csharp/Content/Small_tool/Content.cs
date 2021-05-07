@@ -17,8 +17,8 @@ namespace Csharp
 
         protected string _kind;
         public string Body;
-        public User _author;
-        public User Author
+        public string _author;
+        public string Author
         {
             set
             {

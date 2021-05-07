@@ -636,10 +636,18 @@ namespace Csharp
             //user.Name = "HJB";
             //user.Password = "@123456aA";
             //user.Login();
-            
+
+            //problem发布
+            //Problem problem = new Problem();
+            //problem.Author = "hjb";
+            //problem.Reward = 100;
+            //problem.Title = "sss";
+            //problem.id =9;
+            //problem.Publish();
+
             ////单页
             //int id = 1;
-            //List<Content> contents = RepositoryServer.GetPage(id, "problem");
+            //List<Content> contents = RepositoryServer.GetPage(/*id,*/ "problem");
             //foreach (var item in contents)
             //{
             //    Console.WriteLine(item.Body);
@@ -648,7 +656,9 @@ namespace Csharp
 
             #endregion
 
+            #region Entity Framework
 
+            #endregion
 
 
 

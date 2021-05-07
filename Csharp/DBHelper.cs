@@ -13,10 +13,13 @@ namespace Csharp
         public DbCommand Cmd
         {
             set { _cmd = value; } 
-            get { _cmd.Connection = Conn; return _cmd; } 
+            get {_cmd.Connection = Conn;
+                    ; return _cmd; } 
         }
-
-    
+        //public void AddParameter( string sqlsth, object sth) 
+        //{
+        //    Cmd.Parameters.Add(new SqlParameter(sqlsth, sth));
+        //}
 
         //NonQuery
         public void NonQueryProcess(string text) 
