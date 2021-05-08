@@ -7,15 +7,13 @@ namespace Csharp
     public class User  
        : Entity, ISendMessage, IChat
     {
-        #region 构造函数
-        //public User(string name, string password)
-        //{
-        //    this.Name = name;
-        //    Password = password;   //为了便于测试
-        //}
-        #endregion
-
+        public User()
+        {
+            CreateTime = DateTime.Now;
+        }
         #region 数据
+        public DateTime? CreateTime { set; get; } 
+        public int FailedTry { set; get; }
 
         public TokenManager Tokens;
         public string Authcore { get; set; }
@@ -38,7 +36,7 @@ namespace Csharp
             get { return _name; }
         }
 
-        private string _password;
+        private string _password="123456";
         public string Password
         {
             set
