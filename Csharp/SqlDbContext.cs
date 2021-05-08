@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,16 @@ namespace Csharp
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string connStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=17bang;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            optionsBuilder.UseSqlServer(connStr);
+            optionsBuilder
+                .UseSqlServer(connStr)
+#if DEBUG
+                .EnableSensitiveDataLogging(true)
+                .LogTo
+                   (
+                       (id, level) => level == LogLevel.Error,            //过滤条件
+                        log => Console.WriteLine(log)   //如何记录log
+                    );
+#endif
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
