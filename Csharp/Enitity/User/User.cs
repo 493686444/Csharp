@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.Common;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+
 namespace Csharp
 {
+    [Index("CreateTime", IsUnique = true)]
+    [Table("Register")]
     public class User  
        : Entity, ISendMessage, IChat
     {
@@ -11,8 +17,11 @@ namespace Csharp
         {
             CreateTime = DateTime.Now;
         }
+
         #region 数据
         public DateTime? CreateTime { set; get; } 
+
+        [NotMapped]
         public int FailedTry { set; get; }
 
         public TokenManager Tokens;
@@ -20,6 +29,10 @@ namespace Csharp
         public int Invitedby;
 
         private string _name;
+
+        [Key]
+        [MaxLength(256)]
+        [Column("UserName")]
         public string Name 
         {
             set
@@ -37,6 +50,8 @@ namespace Csharp
         }
 
         private string _password="123456";
+
+        [Required]
         public string Password
         {
             set
