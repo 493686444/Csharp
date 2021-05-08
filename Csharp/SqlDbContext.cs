@@ -14,27 +14,26 @@ namespace Csharp
             optionsBuilder.UseSqlServer(connStr);
             base.OnConfiguring(optionsBuilder);
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>
-                (
-                e =>
-                {
-                    e.ToTable("Register").HasKey("Name");
-                    e.Property("Name")
-                       .HasColumnName("UserName")
-                       .HasMaxLength(256);
-                    e.Property("Password").IsRequired(true);
-                    e.Ignore("FailedTry");
-                    e.HasIndex(x => x.CreateTime).IsUnique();
-                    e.HasCheckConstraint(
-                        "CK_CreateTime",
-                        "CreateTime Between '2000/1/1' AND '2999/12/31'");
-                }
-                );
-
-            base.OnModelCreating(modelBuilder);
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<User>
+        //        (
+        //        e =>
+        //        {
+        //            e.ToTable("Register").HasKey("Name");
+        //            e.Property("Name")
+        //               .HasColumnName("UserName")
+        //               .HasMaxLength(256);
+        //            e.Property("Password").IsRequired(true);
+        //            e.Ignore("FailedTry");
+        //            e.HasIndex(x => x.CreateTime).IsUnique();
+        //            e.HasCheckConstraint(
+        //                "CK_CreateTime",
+        //                "CreateTime Between '2000/1/1' AND '2999/12/31'");
+        //        }
+        //        );
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 
 
