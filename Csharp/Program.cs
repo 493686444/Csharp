@@ -678,13 +678,14 @@ namespace Csharp
             //findtion_one.Name = "我改了个Name";
             //context.SaveChanges();
 
-            //4.不加载User对象，仅凭其Id用一句Update SQL语句完成上题
-            context.Update
-                (new User() { id = 1, Name = "这是第二次改" });
-            context.SaveChanges();
+            ////4.不加载User对象，仅凭其Id用一句Update SQL语句完成上题
+            //context.Update
+            //    (new User() { id = 1, Name = "这是第二次改" });
+            //context.SaveChanges();
 
             //5.删除该用户
-           
+            context.Users.Remove(new User() { id=1 });
+            context.SaveChanges();
             #endregion
 
 
