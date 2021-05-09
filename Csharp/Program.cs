@@ -658,20 +658,22 @@ namespace Csharp
 
             #region Entity Framework
 
-            // 1.利用EF，插入3个User对象
+            //// 1.利用EF，插入3个User对象
 
-            SqlDbContext context = new SqlDbContext();
-            User user_a = new User() {  Name = "韩佳宝a" };
-            User user_b = new User() {  Name = "韩佳宝b" };
-            User user_c = new User() {  Name = "韩佳宝c" };
-            context.Users.Add(user_a);
-            context.Users.Add(user_b);
-            context.Users.Add(user_c);
-            context.SaveChanges();
+            //SqlDbContext context = new SqlDbContext();
+            //User user_a = new User() {  Name = "韩佳宝a" };
+            //User user_b = new User() {  Name = "韩佳宝b" };
+            //User user_c = new User() {  Name = "韩佳宝c" };
+            //context.Users.Add(user_a);
+            //context.Users.Add(user_b);
+            //context.Users.Add(user_c);
+            //context.SaveChanges();
 
             //2.通过主键找到其中一个User对象
-            //SqlDbContext context = new SqlDbContext();
-            //context.Users.Find("")
+            SqlDbContext context = new SqlDbContext();
+            User finder = context.Users.Find(1);
+            Console.WriteLine(finder.id + finder.Name);
+
 
             #endregion
 
