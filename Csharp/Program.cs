@@ -656,7 +656,7 @@ namespace Csharp
 
             #endregion
 
-            #region Entity Framework
+            #region 基本增删改查
 
             //// 1.利用EF，插入3个User对象
 
@@ -669,8 +669,8 @@ namespace Csharp
             //context.Users.Add(user_c);
             //context.SaveChanges();
 
-            //2.通过主键找到其中一个User对象
-            SqlDbContext context = new SqlDbContext();
+            ////2.通过主键找到其中一个User对象
+            //SqlDbContext context = new SqlDbContext();
             //User findtion_one = context.Users.Find(1);
             //Console.WriteLine(findtion_one.id + findtion_one.Name);
 
@@ -683,9 +683,9 @@ namespace Csharp
             //    (new User() { id = 1, Name = "这是第二次改" });
             //context.SaveChanges();
 
-            //5.删除该用户
-            context.Users.Remove(new User() { id=1 });
-            context.SaveChanges();
+            ////5.删除该用户
+            //context.Users.Remove(new User() { id=1 });
+            //context.SaveChanges();
             #endregion
 
 
