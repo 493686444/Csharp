@@ -49,10 +49,10 @@ namespace Csharp
         {
             set
             {
-                if (_inspector(value))
-                {
+                //if (_inspector(value))   //暂时不对密码进行限制
+                //{
                     _password = value;
-                }
+                //}
             }
             get { return _password; }
         }
