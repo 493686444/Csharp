@@ -671,17 +671,20 @@ namespace Csharp
 
             //2.通过主键找到其中一个User对象
             SqlDbContext context = new SqlDbContext();
-            User findtion_one = context.Users.Find(1);
-            Console.WriteLine(findtion_one.id + findtion_one.Name);
+            //User findtion_one = context.Users.Find(1);
+            //Console.WriteLine(findtion_one.id + findtion_one.Name);
 
             //3.修改该User对象的Name属性，将其同步到数据库
-            findtion_one.Name = "我改了个Name";
-            context.SaveChanges();
-            //4.不加载User对象，仅凭其Id用一句Update SQL语句完成上题
+            //findtion_one.Name = "我改了个Name";
+            //context.SaveChanges();
 
+            //4.不加载User对象，仅凭其Id用一句Update SQL语句完成上题
+            context.Update
+                (new User() { id = 1, Name = "这是第二次改" });
+            context.SaveChanges();
 
             //5.删除该用户
-
+           
             #endregion
 
 
