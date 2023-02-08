@@ -56,7 +56,7 @@ namespace Csharp
             ////for
             //for (int i = 0; i < 5; i++)
             //{ Console.WriteLine(i + 1); }
-            //while
+            ////while
             //int j = 0;
             //while (j < 5)
             //{
